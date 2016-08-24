@@ -75,6 +75,52 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 
                 }
                 
+                for var i = 0; i < self.artworks.count; i++ {
+                    for var j = 1; j < self.artworks.count-i; j++ {
+                        
+                        
+                        
+                        
+                        let full = self.artworks[j-1].Coordinates!.componentsSeparatedByString(",")
+                        
+                        var first: String = full[0]
+                        var last: String = full[1]
+                        
+                        var lat1 = String(first.characters.dropFirst())
+                        var long1 = String(last.characters.dropLast())
+                        
+                        
+                        let lat2 = (lat1 as NSString).doubleValue
+                        let long2 = (long1 as NSString).doubleValue
+                        
+                        let LocationJx = CLLocation(latitude: lat2, longitude: long2)
+                        
+                        let distanceJx = currentlocation.distanceFromLocation(LocationJx) as Double
+                        
+                        let fullj = self.artworks[j].Coordinates!.componentsSeparatedByString(",")
+                        
+                        var firstj: String = fullj[0]
+                        var lastj: String = fullj[1]
+                        
+                        var lat1j = String(firstj.characters.dropFirst())
+                        var long1j = String(lastj.characters.dropLast())
+                        
+                        
+                        let lat2j = (lat1j  as NSString).doubleValue
+                        let long2j = (long1j as NSString).doubleValue
+                        
+                        let LocationJ = CLLocation(latitude: lat2j, longitude: long2j)
+                        
+                        let distanceJ = currentlocation.distanceFromLocation(LocationJ) as Double
+                        
+                        
+                        if distanceJ < distanceJx {
+                            let swap = self.artworks[j-1]
+                            self.artworks[j-1] = self.artworks[j]
+                            self.artworks[j] = swap
+                        }
+                    }
+                }
                 
                 
                 //self.artworks.removeAll()
