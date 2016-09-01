@@ -32,20 +32,14 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         fetchArtworks()
         mapView.showsUserLocation = true
     
-
-//        
-//        let locValue:CLLocationCoordinate2D = locationManager1.location!.coordinate
-//       
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//        
-//      let initialLocation = CLLocation(latitude: -37.8885677, longitude: 145.045028)
-//        let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-//        //let i111 = self.locationManager1.location
-//        let distance = currentlocation.distanceFromLocation(initialLocation)
-//        print("\(distance)")
         
         loadInitialData()
         mapView.addAnnotations(artworks)
+        
+        for art in artworks{
+            addRadiusOverlayForGeotification(art)
+       //    startMonitoringGeotification(art)
+        }
         
         mapView.delegate = self
         
@@ -54,6 +48,26 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         //      discipline: "Sculpture", coordinate: CLLocationCoordinate2D(latitude: 21.283921,
         //        longitude: -157.831661))
         //    mapView.addAnnotation(artwork)
+    }
+    
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        mapView.showsUserLocation = (status == .AuthorizedAlways)
+    }
+    
+    @IBAction func goToCurrentLocation(sender: AnyObject) {
+        
+        
+        self.locationManager1.delegate = self
+        self.locationManager1.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager1.requestWhenInUseAuthorization()
+        self.locationManager1.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+        
+        fetchArtworks()
+        mapView.showsUserLocation = true
+
+
     }
     
     var artworks = [ArtworkForMap]()
@@ -85,10 +99,14 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
                     // 5
                     artwork = ArtworkForMap.fromJSON(artworkJSON) {
                     artworks.append(artwork)
+                    
                 }
             }
         }
     }
+    
+    
+
     
     
     func fetchArtworks(){
@@ -130,35 +148,31 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         
     }
     
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        let location = locations.last as! CLLocation
-//        
-//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-//        
-//        self.mapView.setRegion(region, animated: true)
-//    }
-
-    
-//    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        print(#function)
-//        if control == view.rightCalloutAccessoryView {
-//            
-//            performSegueWithIdentifier("tothemoon", sender: self)
-//                    }
-//       
-//        
-//    }
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "tothemoon"
-//        {
-//            
-//            let indexPath = self.mapView.annotations.
-//            let controller: ViewDetailsController = segue.destinationViewController
-//                as! ViewDetailsController
-//            controller.currentArtwork = self.artworks[indexPath.row]
+//
+//    func startMonitoringGeotification(geotification: ArtworkForMap) {
+//        // 1
+//        if !CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion) {
+//            showSimpleAlertWithTitle("Error", message: "Geofencing is not supported on this device!", viewController: self)
+//            return
 //        }
+//        // 2
+//        if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
+//            showSimpleAlertWithTitle("Warning", message: "Your geotification is saved but will only be activated once you grant Geotify permission to access the device location.", viewController: self)
+//        }
+//        // 3
+//        let region = regionWithGeotification(geotification)
+//        // 4
+//        locationManager1.startMonitoringForRegion(region)
+//    }
+//
+//    
+//    func regionWithGeotification(geotification: ArtworkForMap) -> CLCircularRegion {
+//        // 1
+//        let region = CLCircularRegion(center: geotification.coordinate, radius: 100, identifier: geotification.locationName)
+//        // 2
+//        //region.notifyOnEntry = (geotification.eventType == .OnEntry)
+//        region.notifyOnExit = !region.notifyOnEntry
+//        return region
 //    }
 
     

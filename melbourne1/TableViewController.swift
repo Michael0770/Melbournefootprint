@@ -36,7 +36,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         let locValue:CLLocationCoordinate2D = locationManager1.location!.coordinate
         
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
         
         //let initialLocation = CLLocation(latitude: -37.8885677, longitude: 145.045028)
         let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)

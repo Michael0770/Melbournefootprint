@@ -251,7 +251,13 @@
                             <constraint firstItem="BDb-s1-aSJ" firstAttribute="centerY" secondItem="KXL-Yt-9FX" secondAttribute="centerY" id="mmt-cg-zmy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="duc-ne-oM0"/>
+                    <navigationItem key="navigationItem" title="Map" id="duc-ne-oM0">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="currentLocation" id="nqW-Uo-laD">
+                            <connections>
+                                <action selector="goToCurrentLocation:" destination="lDT-c0-csS" id="GJJ-g1-Sle"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="BDb-s1-aSJ" id="x4S-P6-93o"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="tothemoon" id="wJb-EB-e63"/>
@@ -259,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u94-iq-Zl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="-537"/>
+            <point key="canvasLocation" x="1242" y="-590"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="M8b-gy-2fS">
@@ -401,6 +407,7 @@
     </scenes>
     <resources>
         <image name="about tab" width="25" height="25"/>
+        <image name="currentLocation" width="15" height="15"/>
         <image name="list tab" width="30" height="30"/>
         <image name="map tab" width="30" height="30"/>
     </resources>

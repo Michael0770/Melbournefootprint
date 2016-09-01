@@ -82,6 +82,25 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     
+    func addRadiusOverlayForGeotification(geotification: ArtworkForMap) {
+        
+        mapView?.addOverlay(MKCircle(centerCoordinate: geotification.coordinate, radius: 100))
+    }
+    
+
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
+        if overlay is MKCircle {
+            let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.lineWidth = 1.0
+            circleRenderer.strokeColor = UIColor.purpleColor()
+            circleRenderer.fillColor = UIColor.purpleColor().colorWithAlphaComponent(0.4)
+            return circleRenderer
+        }
+        return nil
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tothemoon"
         {
