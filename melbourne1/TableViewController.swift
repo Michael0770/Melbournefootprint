@@ -66,6 +66,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         tableView.tableHeaderView = searchController.searchBar
         
     }
+    
+    
     func fetchArtworks(){
         
         let locationManager1 = CLLocationManager()

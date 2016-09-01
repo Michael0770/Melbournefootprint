@@ -356,11 +356,11 @@
             </objects>
             <point key="canvasLocation" x="1148" y="636"/>
         </scene>
-        <!--Nearby-->
+        <!--Heritage-->
         <scene sceneID="Hpd-bS-IM3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RXa-1i-j07" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nearby" image="list tab" id="KOm-uh-f80"/>
+                    <tabBarItem key="tabBarItem" title="Heritage" image="list tab" id="KOm-uh-f80"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DOf-wj-ijZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

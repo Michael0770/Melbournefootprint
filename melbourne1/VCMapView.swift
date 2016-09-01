@@ -15,6 +15,8 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView,
                  viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         if let annotation = annotation as? ArtworkForMap {
+            addRadiusOverlayForGeotification(annotation)
+            
             let identifier = "pin"
             var view: MKAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
@@ -48,20 +50,6 @@ extension MapViewController: MKMapViewDelegate {
         return nil
     }
     
-    //    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlViewTapped control: UIControl) {
-    //
-    ////        if control == view.rightCalloutAccessoryView {
-    ////            self.awork = view.annotation as! ArtworkForMap
-    ////            performSegueWithIdentifier("tothemoon", sender: self)
-    ////
-    ////        }
-    //
-    //            self.awork = view.annotation as! ArtworkForMap
-    //            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-    //            awork!.mapItem().openInMapsWithLaunchOptions(launchOptions)
-    //
-    //
-    //    }
     
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -119,19 +107,5 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        if segue.identifier == "toTheMoon" {
-    //            let controller = segue.destinationViewController as! DetailViewController
-    //
-    //        }
-    //    }
-    //
-    
-    
-    //  func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-    //    let location = view.annotation as! Artwork
-    //    let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-    //    location.mapItem().openInMapsWithLaunchOptions(launchOptions)
-    //  }
-    
+
 }

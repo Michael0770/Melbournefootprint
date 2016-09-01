@@ -11,6 +11,7 @@
 		4C38FB611D770ECB0054D548 /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4C38FB601D770ECB0054D548 /* TestLocations.gpx */; };
 		4C38FB631D7717CD0054D548 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C38FB621D7717CD0054D548 /* CoreLocation.framework */; };
 		4C38FB651D77B2160054D548 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38FB641D77B2160054D548 /* Geofence.swift */; };
+		4C38FB671D7848500054D548 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C38FB661D7848500054D548 /* Info.plist */; };
 		4C57D9D41D6732BE007A3FAF /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C57D9D31D6732BE007A3FAF /* PublicArt.json */; };
 		4C57D9D61D673398007A3FAF /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57D9D51D673398007A3FAF /* JSON.swift */; };
 		4CE1FA541D660517003BBD68 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1FA531D660517003BBD68 /* VCMapView.swift */; };
@@ -58,6 +59,7 @@
 		4C38FB601D770ECB0054D548 /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		4C38FB621D7717CD0054D548 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4C38FB641D77B2160054D548 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
+		4C38FB661D7848500054D548 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C57D9D31D6732BE007A3FAF /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
 		4C57D9D51D673398007A3FAF /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		4CE1FA4F1D65F8F2003BBD68 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				A640AC3E1D6494DC005A4F84 /* Main.storyboard */,
 				A640AC441D6494DC005A4F84 /* Assets.xcassets */,
 				A640AC461D6494DC005A4F84 /* LaunchScreen.storyboard */,
+				4C38FB661D7848500054D548 /* Info.plist */,
 				A640AC491D6494DC005A4F84 /* Info.plist */,
 				4C38FB601D770ECB0054D548 /* TestLocations.gpx */,
 				A640AC411D6494DC005A4F84 /* melbourne1.xcdatamodeld */,
@@ -269,6 +272,11 @@
 					A640AC361D6494DC005A4F84 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5UEEWU7R25;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					A640AC4D1D6494DC005A4F84 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -307,6 +315,7 @@
 			files = (
 				4C57D9D41D6732BE007A3FAF /* PublicArt.json in Resources */,
 				A640AC481D6494DC005A4F84 /* LaunchScreen.storyboard in Resources */,
+				4C38FB671D7848500054D548 /* Info.plist in Resources */,
 				A640AC451D6494DC005A4F84 /* Assets.xcassets in Resources */,
 				4C38FB611D770ECB0054D548 /* TestLocations.gpx in Resources */,
 				A640AC401D6494DC005A4F84 /* Main.storyboard in Resources */,

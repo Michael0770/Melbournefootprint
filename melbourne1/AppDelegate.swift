@@ -15,20 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
     
-    let locationManager = CLLocationManager()
+  //  let locationManager = CLLocationManager()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        NSThread.sleepForTimeInterval(1);
-//        locationManager.delegate = self
-//        locationManager.requestAlwaysAuthorization()
-//        
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
-//        UIApplication.sharedApplication().cancelAllLocalNotifications()
-        
+        let supportedNotificationTypes:UIUserNotificationType = [.Alert, .Badge, .Sound]
+        let notificationSettings = UIUserNotificationSettings(forTypes: supportedNotificationTypes, categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
 
         
+  
         return true
     }
     
