@@ -221,7 +221,16 @@
                             <outlet property="delegate" destination="Cqo-1r-HCd" id="f1i-ku-GCq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nearby" id="gkq-n4-MWd"/>
+                    <navigationItem key="navigationItem" title="Nearby" id="gkq-n4-MWd">
+                        <barButtonItem key="rightBarButtonItem" title="All" id="0Ph-6k-zva">
+                            <connections>
+                                <action selector="allItem:" destination="Cqo-1r-HCd" id="8QQ-Pm-0Th"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="allItemT" destination="0Ph-6k-zva" id="whC-Aj-JpQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsT-eb-xze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
