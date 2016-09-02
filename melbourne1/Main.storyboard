@@ -236,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="2734" y="248"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="Msh-B2-YrC">
             <objects>
                 <viewController id="lDT-c0-csS" customClass="MapViewController" customModule="melbourne1" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,37 +251,37 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BDb-s1-aSJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pqO-su-orj">
+                                <rect key="frame" x="194" y="499" width="212" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="SOS-0B-zML"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybird"/>
+                                </segments>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SOS-0B-zML"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="mapTypeChanged:" destination="lDT-c0-csS" eventType="valueChanged" id="og4-vG-iv3"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aKc-78-SBX" firstAttribute="top" secondItem="pqO-su-orj" secondAttribute="bottom" constant="24" id="0t6-CL-ERV"/>
                             <constraint firstItem="BDb-s1-aSJ" firstAttribute="top" secondItem="KXL-Yt-9FX" secondAttribute="top" id="Fg5-wI-ati"/>
                             <constraint firstAttribute="trailing" secondItem="BDb-s1-aSJ" secondAttribute="trailing" id="Kio-uL-aph"/>
                             <constraint firstItem="BDb-s1-aSJ" firstAttribute="bottom" secondItem="aKc-78-SBX" secondAttribute="top" id="ZM0-6X-Wnv"/>
                             <constraint firstItem="BDb-s1-aSJ" firstAttribute="leading" secondItem="KXL-Yt-9FX" secondAttribute="leading" id="adA-Zc-1Mq"/>
+                            <constraint firstItem="pqO-su-orj" firstAttribute="centerX" secondItem="BDb-s1-aSJ" secondAttribute="centerX" id="ofr-aX-ZbX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="duc-ne-oM0">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="pqO-su-orj">
-                            <rect key="frame" x="194" y="7.5" width="212" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="189" id="SOS-0B-zML"/>
-                            </constraints>
-                            <segments>
-                                <segment title="Standard"/>
-                                <segment title="Satellite"/>
-                                <segment title="Hybird"/>
-                            </segments>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="SOS-0B-zML"/>
-                                </mask>
-                            </variation>
-                            <connections>
-                                <action selector="mapTypeChanged:" destination="lDT-c0-csS" eventType="valueChanged" id="og4-vG-iv3"/>
-                            </connections>
-                        </segmentedControl>
+                    <navigationItem key="navigationItem" title="Map" id="duc-ne-oM0">
                         <barButtonItem key="rightBarButtonItem" image="currentLocation" id="3AE-On-tGN">
                             <connections>
                                 <action selector="backToCurrentLocation:" destination="lDT-c0-csS" id="42b-CP-I9Q"/>
