@@ -80,28 +80,7 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         loadInitialData()
         mapView.addAnnotations(artworks)
         
-        for region in artworks{
-            
-            let current = locationManager1.location?.coordinate
-            print(current)
 
-            let currentlocation = CLLocation(latitude: (current?.latitude)!, longitude: (current?.longitude)!)
-            
-            let initialLocation = CLLocation(latitude: region.coordinate.latitude, longitude: region.coordinate.longitude)
-            
-            let distance = currentlocation.distanceFromLocation(initialLocation)
-
-            print("Monitoring \(region.title) region")
-            // Using 1000 metre radius from center of location
-            
-            if distance < 1500{
-        
-            let geofence = CLCircularRegion(center: region.coordinate, radius: 50, identifier: region.title!)
-            locationManager1.startMonitoringForRegion(geofence)
-            //addRadiusOverlayForGeotification(region)
-    
-            }
-        }
         
     }
     
@@ -268,6 +247,29 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         let location = locations.last
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude,
                                             longitude: location!.coordinate.longitude)
+        
+        for region in artworks{
+            
+            //            let current = locationManager1.location?.coordinate
+            //            print(current)
+            //
+                        let currentlocation = CLLocation(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+            
+            let initialLocation = CLLocation(latitude: region.coordinate.latitude, longitude: region.coordinate.longitude)
+            
+            let distance = currentlocation.distanceFromLocation(initialLocation)
+            
+            print("Monitoring \(region.title) region")
+            // Using 1000 metre radius from center of location
+            
+            if distance < 1500{
+                
+                let geofence = CLCircularRegion(center: region.coordinate, radius: 50, identifier: region.title!)
+                locationManager1.startMonitoringForRegion(geofence)
+                //addRadiusOverlayForGeotification(region)
+                
+            }
+        }
 
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01,
             longitudeDelta: 0.01))
