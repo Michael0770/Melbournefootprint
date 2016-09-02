@@ -236,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="2734" y="248"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="Msh-B2-YrC">
             <objects>
                 <viewController id="lDT-c0-csS" customClass="MapViewController" customModule="melbourne1" customModuleProvider="target" sceneMemberID="viewController">
@@ -248,22 +248,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BDb-s1-aSJ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BDb-s1-aSJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="centerX" secondItem="KXL-Yt-9FX" secondAttribute="centerX" id="I0m-eS-XMn"/>
-                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="height" secondItem="KXL-Yt-9FX" secondAttribute="height" id="I9h-fk-jIt"/>
-                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="width" secondItem="KXL-Yt-9FX" secondAttribute="width" id="JZ5-An-bty"/>
-                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="centerY" secondItem="KXL-Yt-9FX" secondAttribute="centerY" id="mmt-cg-zmy"/>
+                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="top" secondItem="KXL-Yt-9FX" secondAttribute="top" id="Fg5-wI-ati"/>
+                            <constraint firstAttribute="trailing" secondItem="BDb-s1-aSJ" secondAttribute="trailing" id="Kio-uL-aph"/>
+                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="bottom" secondItem="aKc-78-SBX" secondAttribute="top" id="ZM0-6X-Wnv"/>
+                            <constraint firstItem="BDb-s1-aSJ" firstAttribute="leading" secondItem="KXL-Yt-9FX" secondAttribute="leading" id="adA-Zc-1Mq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="duc-ne-oM0">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="currentLocation" id="nqW-Uo-laD">
+                    <navigationItem key="navigationItem" id="duc-ne-oM0">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="pqO-su-orj">
+                            <rect key="frame" x="194" y="7.5" width="212" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="189" id="SOS-0B-zML"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Standard"/>
+                                <segment title="Satellite"/>
+                                <segment title="Hybird"/>
+                            </segments>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="SOS-0B-zML"/>
+                                </mask>
+                            </variation>
                             <connections>
-                                <action selector="goToCurrentLocation:" destination="lDT-c0-csS" id="GJJ-g1-Sle"/>
+                                <action selector="mapTypeChanged:" destination="lDT-c0-csS" eventType="valueChanged" id="og4-vG-iv3"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" image="currentLocation" id="3AE-On-tGN">
+                            <connections>
+                                <action selector="backToCurrentLocation:" destination="lDT-c0-csS" id="42b-CP-I9Q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -274,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u94-iq-Zl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="-590"/>
+            <point key="canvasLocation" x="1315" y="-616"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="M8b-gy-2fS">
@@ -421,6 +442,6 @@
         <image name="map tab" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1T9-oe-y9y"/>
+        <segue reference="wJb-EB-e63"/>
     </inferredMetricsTieBreakers>
 </document>

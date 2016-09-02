@@ -23,7 +23,35 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     let regionRadius: CLLocationDistance = 1000
     let locationManager1 = CLLocationManager()
     
+    @IBAction func mapTypeChanged(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .Standard
+        case 1:
+            mapView.mapType = .Satellite
+        case 2:
+            mapView.mapType = .Hybrid
+        default:
+            print("Unexpected segment index for map type.")
+        }
+    }
     
+    
+    @IBAction func backToCurrentLocation(sender: AnyObject) {
+        
+            
+            
+            self.locationManager1.delegate = self
+            self.locationManager1.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager1.requestWhenInUseAuthorization()
+            self.locationManager1.startUpdatingLocation()
+            self.mapView.showsUserLocation = true
+            
+            fetchArtworks()
+            mapView.showsUserLocation = true
+            
+            
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +76,17 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         loadInitialData()
         mapView.addAnnotations(artworks)
         
-//        self.locationManager1.desiredAccuracy = kCLLocationAccuracyBest
-//        self.locationManager1.requestWhenInUseAuthorization()
-//        self.locationManager1.startUpdatingLocation()
-//        self.mapView.showsUserLocation = true
+        self.locationManager1.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager1.requestWhenInUseAuthorization()
+        self.locationManager1.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
         
   
         for region in artworks{
             
-            
+            let current = locationManager1.location?.coordinate
 
-            let currentlocation = CLLocation(latitude: -37.8767453, longitude: 145.0418036)
+            let currentlocation = CLLocation(latitude: (current?.latitude)!, longitude: (current?.longitude)!)
             
             
             
@@ -77,7 +105,7 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
                 
 
                 
-            let geofence = CLCircularRegion(center: region.coordinate, radius: 500, identifier: region.title!)
+            let geofence = CLCircularRegion(center: region.coordinate, radius: 50, identifier: region.title!)
             locationManager1.startMonitoringForRegion(geofence)
             //addRadiusOverlayForGeotification(region)
     
@@ -182,20 +210,7 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     
 
     
-    @IBAction func goToCurrentLocation(sender: AnyObject) {
-        
-        
-        self.locationManager1.delegate = self
-        self.locationManager1.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager1.requestWhenInUseAuthorization()
-        self.locationManager1.startUpdatingLocation()
-        self.mapView.showsUserLocation = true
-        
-        fetchArtworks()
-        mapView.showsUserLocation = true
 
-
-    }
     
 
     
@@ -267,8 +282,7 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         let location = locations.last
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude,
                                             longitude: location!.coordinate.longitude)
-        
-        self.csss = center
+
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01,
             longitudeDelta: 0.01))
         self.mapView.setRegion(region, animated: true)
