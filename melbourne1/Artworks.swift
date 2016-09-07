@@ -18,5 +18,8 @@ class Artworks: NSObject {
     var Name: String?
     var Photo: String?
     var Structure: String?
+    var PhotoOne:String?
+    var PhotoTwo:String?
+    var location:String?
 
 }

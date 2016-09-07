@@ -33,7 +33,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         super.viewDidLoad()
         //initialization
         index = 0
-        imageArray = [(currentArtwork?.Photo)!]
+        imageArray = [(currentArtwork?.Photo)!,(currentArtwork?.PhotoOne)!,(currentArtwork?.PhotoTwo)!]
         
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(imageTapped))
@@ -156,7 +156,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         }
         
         //  imageView.image = UIImage(named: (imageArray![index!]) as! String);
-        self.imageView.loadImageUsingCacheWithUrlString((currentArtwork?.Photo)!)
+        self.imageView.loadImageUsingCacheWithUrlString(imageArray![index!] as! String)
         addAnimation(1);
         
     }
@@ -169,7 +169,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
             self.index = (imageArray?.count)! - 1;
         }
         //   imageView.image = UIImage(named: (imageArray![index!]) as! String);
-        self.imageView.loadImageUsingCacheWithUrlString((currentArtwork?.Photo)!)
+        self.imageView.loadImageUsingCacheWithUrlString(imageArray![index!] as! String)
         addAnimation(0);
         
     }
