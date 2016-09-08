@@ -17,7 +17,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
     var imageArray: NSArray?
     var index: NSInteger?
     var pageController: UIPageControl?
-    
+    //swip image view
     var scrollV : UIScrollView!
     var newImageView : UIImageView!
     var currentArtwork : Artworks?
@@ -28,14 +28,14 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
     @IBOutlet weak var nameLabel: UILabel!
 
     @IBOutlet weak var imageView: UIImageView!
-    
+    //load view
     override func viewDidLoad() {
         super.viewDidLoad()
         //initialization
         index = 0
         imageArray = [(currentArtwork?.Photo)!,(currentArtwork?.PhotoOne)!,(currentArtwork?.PhotoTwo)!]
         
-        
+        //add tap gesture for image view
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(imageTapped))
         imageView.userInteractionEnabled = true
         
@@ -43,6 +43,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         
         typeLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         typeLabel.numberOfLines = 0;
+        //get info that passed by tableview
         self.nameLabel.text = currentArtwork?.Name
         self.dateLabel.text = currentArtwork?.Date
         self.artistLabel.text = currentArtwork?.Artist
@@ -82,7 +83,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //define image view tap action
     func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state  == .Ended{
             

@@ -15,7 +15,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     var index = 1;
     let searchController = UISearchController(searchResultsController:nil)
     @IBOutlet weak var allItemT: UIBarButtonItem!
-    
+    //set nearby and all transform
     @IBAction func allItem(sender: AnyObject) {
         if self.index%2 != 0{
             self.flag = true
@@ -40,7 +40,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     }
     
     
-    
+    //add search function
     var artworks = [Artworks]()
     var filteredArtwork = [Artworks]()
     func filterContentForSearchText(searchText:String,scope:String = "All"){
@@ -67,7 +67,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
     }
     
-    
+    //get data from database
     func fetchArtworks(){
         
         let locationManager1 = CLLocationManager()
@@ -110,6 +110,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
                 if self.flag == true{
                     self.artworks.append(artwork)
                 }
+                    //judge nearby distance
                 else if self.flag == false{
                     if distance < 1500{
                         self.artworks.append(artwork)
@@ -191,7 +192,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         return artworks.count
     }
     
-    
+    //define cell in tablebar to show artwokr
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! TableViewCell
         
@@ -256,7 +257,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // pass selected artwokr to detail view
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewArtwork"
         {
@@ -280,7 +281,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     }
     
 }
-
+//update  content when seaching.
 extension TableViewController : UISearchResultsUpdating {
     
     func updateSearchResultsForSearchController(searchController:UISearchController)
