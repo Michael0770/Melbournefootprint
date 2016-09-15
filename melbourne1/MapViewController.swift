@@ -8,17 +8,14 @@
 
 import UIKit
 import MapKit
-import Firebase
 import CoreLocation
-
+import FirebaseDatabase
 class MapViewController: UIViewController ,CLLocationManagerDelegate{
-
     var awork : ArtworkForMap?
     var reallart : Artworks?
     var artworks = [ArtworkForMap]()
     var reallartworks = [Artworks]()
     //var csss : CLLocationCoordinate2D?
-    
     @IBOutlet weak var mapView: MKMapView!
     let regionRadius: CLLocationDistance = 1000
     let locationManager1 = CLLocationManager()
@@ -101,12 +98,12 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("Exited region \(region.identifier)")
+        
     }
     
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("Entered region \(region.identifier)")
+        
         
         // Notify the user when they have entered a region
         let title = "A heritage is aroud you"
@@ -216,10 +213,8 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     
     
     func fetchArtworks(){
-        
-        let ref = Firebase(url: "https://melbourne-footprint.firebaseio.com/")
-        
-        
+
+        let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
         ref.childByAppendingPath("Heritage").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]
             {
@@ -259,12 +254,12 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
             
             let distance = currentlocation.distanceFromLocation(initialLocation)
             
-            print("Monitoring \(region.title) region")
+          //  print("Monitoring \(region.title) region")
             // Using 1000 metre radius from center of location
             
             if distance < 1500{
                 
-                let geofence = CLCircularRegion(center: region.coordinate, radius: 50, identifier: region.title!)
+                let geofence = CLCircularRegion(center: region.coordinate, radius: 10, identifier: region.title!)
                 locationManager1.startMonitoringForRegion(geofence)
                 //addRadiusOverlayForGeotification(region)
                 

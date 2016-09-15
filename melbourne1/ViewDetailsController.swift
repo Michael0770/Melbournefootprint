@@ -157,6 +157,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         }
         
         //  imageView.image = UIImage(named: (imageArray![index!]) as! String);
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.imageView.loadImageUsingCacheWithUrlString(imageArray![index!] as! String)
         addAnimation(1);
         
@@ -170,6 +171,8 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
             self.index = (imageArray?.count)! - 1;
         }
         //   imageView.image = UIImage(named: (imageArray![index!]) as! String);
+       
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.imageView.loadImageUsingCacheWithUrlString(imageArray![index!] as! String)
         addAnimation(0);
         

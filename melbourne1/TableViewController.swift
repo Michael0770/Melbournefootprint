@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseDatabase
 import CoreLocation
 
 class TableViewController: UITableViewController, CLLocationManagerDelegate {
@@ -84,7 +84,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         //let i111 = self.locationManager1.location
         
         
-        let ref = Firebase(url: "https://melbourne-footprint.firebaseio.com/")
+        let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
         
         ref.childByAppendingPath("Heritage").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]
@@ -205,17 +205,11 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         let locValue:CLLocationCoordinate2D = locationManager1.location!.coordinate
         
         let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-        
-        
-        
-        
-        
-        
+
         cell.addressL.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell.addressL.numberOfLines = 0;
         cell.nameL.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell.nameL.numberOfLines = 0;
-        
         
         let artwork : Artworks
         if searchController.active && searchController.searchBar.text != "" {
