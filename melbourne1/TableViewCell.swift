@@ -9,7 +9,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    
+    var onButtonTapped : (() -> Void)? = nil
     var isFavorate = NSUserDefaults.standardUserDefaults().boolForKey("isFavorate")
     
     @IBOutlet weak var faButton: UIButton!
@@ -17,8 +17,14 @@ class TableViewCell: UITableViewCell {
         if isFavorate == true {
             let image = UIImage(named: "Heart_icon.png")
             self.faButton.setImage(image, forState: UIControlState.Normal)
+            if let onButtonTapped = self.onButtonTapped {
+                onButtonTapped()
+            }
             print(NSUserDefaults.standardUserDefaults().boolForKey("isFavorate"))
         } else {
+            if let onButtonTapped = self.onButtonTapped {
+                onButtonTapped()
+            }
             let image = UIImage(named: "heart_icon_selected.png")
             self.faButton.setImage(image, forState: UIControlState.Normal)
         }
@@ -33,8 +39,7 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let image = UIImage(named: "Heart_icon.png")
-        self.faButton.setImage(image, forState: UIControlState.Normal)
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

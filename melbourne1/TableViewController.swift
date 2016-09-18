@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 import CoreLocation
 
@@ -195,8 +196,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     //define cell in tablebar to show artwokr
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! TableViewCell
-        
-        
+        let image = UIImage(named: "Heart_icon.png")
+        cell.faButton.setImage(image, forState: UIControlState.Normal)
         let locationManager1 = CLLocationManager()
         locationManager1.delegate = self
         locationManager1.desiredAccuracy = kCLLocationAccuracyBest
@@ -243,6 +244,36 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             cell.tableImageView.loadImageUsingCacheWithUrlString(photo)
             print(photo)
             
+        }
+        cell.onButtonTapped = {
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            let uid = user.uid
+            let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
+            print(!cell.isFavorate)
+            if !cell.isFavorate
+            {
+                ref.child("users/\(uid)/favourate/\(artwork.Name!)").setValue(["Address": "\(artwork.Address!)",
+                    "AlternateName": "",
+                    "Artist": "\(artwork.Artist!)",
+                    "Coordinates": "\(artwork.Coordinates!)",
+                    "Date": "\(artwork.Date!)",
+                    "Descriptions": "\(artwork.Descriptions!)",
+                    "Name": "\(artwork.Name!)",
+                    "Photo": "\(artwork.Photo!)",
+                    "Structure": "\(artwork.Structure!)",
+                    "PhotoOne": "\(artwork.PhotoOne!)",
+                    "PhotoTwo": "\(artwork.PhotoTwo!)",
+                    "location": "\(artwork.location!)"])
+            }
+            else
+            {
+            ref.child("users/\(uid)/favourate/\(artwork.Name!)").removeValue()
+            
+            }
+        } else {
+            // No user is signed in.
+        }
         }
         return cell
     }
