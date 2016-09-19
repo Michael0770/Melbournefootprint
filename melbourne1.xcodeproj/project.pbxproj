@@ -33,6 +33,7 @@
 		A640AC431D6494DC005A4F84 /* melbourne1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A640AC411D6494DC005A4F84 /* melbourne1.xcdatamodeld */; };
 		A640AC451D6494DC005A4F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A640AC441D6494DC005A4F84 /* Assets.xcassets */; };
 		A640AC481D6494DC005A4F84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A640AC461D6494DC005A4F84 /* LaunchScreen.storyboard */; };
+		A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */; };
 		A6BFB5AF1D65D1DB00E75E27 /* Artworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */; };
 		A6BFB5B21D66EB8000E75E27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5B11D66EB8000E75E27 /* Extensions.swift */; };
 		AC6A5AD0C8A27223DB813900 /* Pods_melbourne1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5178336B52BFA64085ABA6C1 /* Pods_melbourne1.framework */; };
@@ -94,6 +95,7 @@
 		A640AC591D6494DC005A4F84 /* melbourne1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = melbourne1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A640AC5D1D6494DC005A4F84 /* melbourne1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = melbourne1UITests.swift; sourceTree = "<group>"; };
 		A640AC5F1D6494DC005A4F84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favouriteTableCell.swift; sourceTree = "<group>"; };
 		A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artworks.swift; sourceTree = "<group>"; };
 		A6BFB5B11D66EB8000E75E27 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B4D981BEB71355124FD691C8 /* Pods-melbourne1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-melbourne1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-melbourne1Tests/Pods-melbourne1Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				A61796E41D89264600AF0330 /* favourateViewController.swift */,
 				A61796E81D8A310100AF0330 /* searchAllCellController.swift */,
 				A61796E61D8A30D500AF0330 /* searchAllController.swift */,
+				A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */,
 			);
 			path = melbourne1;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				A61796E51D89264600AF0330 /* favourateViewController.swift in Sources */,
 				A640AC3D1D6494DC005A4F84 /* ViewDetailsController.swift in Sources */,
 				A640AC3B1D6494DC005A4F84 /* AppDelegate.swift in Sources */,
+				A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */,
 				4CE1FA5F1D660D9B003BBD68 /* MapViewController.swift in Sources */,
 				A61796E71D8A30D500AF0330 /* searchAllController.swift in Sources */,
 				4C38FB651D77B2160054D548 /* Geofence.swift in Sources */,

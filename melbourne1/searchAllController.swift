@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import CoreLocation
+import Firebase
 class searchAllController: UITableViewController,CLLocationManagerDelegate {
     let  flag = true
     var index = 1;
@@ -214,6 +215,37 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
             print(photo)
             
         }
+        cell.onButtonTapped = {
+            if let user = FIRAuth.auth()?.currentUser {
+                // User is signed in.
+                let uid = user.uid
+                let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
+                print(!cell.isFavorate2)
+                if !cell.isFavorate2
+                {
+                    ref.child("users/\(uid)/favorite/\(artwork.Name!)").setValue(["Address": "\(artwork.Address!)",
+                        "AlternateName": "",
+                        "Artist": "\(artwork.Artist!)",
+                        "Coordinates": "\(artwork.Coordinates!)",
+                        "Date": "\(artwork.Date!)",
+                        "Descriptions": "\(artwork.Descriptions!)",
+                        "Name": "\(artwork.Name!)",
+                        "Photo": "\(artwork.Photo!)",
+                        "Structure": "\(artwork.Structure!)",
+                        "PhotoOne": "\(artwork.PhotoOne!)",
+                        "PhotoTwo": "\(artwork.PhotoTwo!)",
+                        "location": "\(artwork.location!)"])
+                }
+                else
+                {
+                    ref.child("users/\(uid)/favorite/\(artwork.Name!)").removeValue()
+                    
+                }
+            } else {
+                // No user is signed in.
+            }
+        }
+
         return cell
     }
     
@@ -223,7 +255,7 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
     
     // pass selected artwokr to detail view
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "viewArtwork"
+        if segue.identifier == "viewArtwork2"
         {
             
             let indexPath = self.tableView.indexPathForSelectedRow!

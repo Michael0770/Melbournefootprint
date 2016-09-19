@@ -11,26 +11,52 @@ import CoreData
 import CoreLocation
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
-  //  let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
 
     func application(application: UIApplication,
                      openURL url: NSURL, options: [String: AnyObject]) -> Bool {
-        return GIDSignIn.sharedInstance().handleURL(url,
-                                                    sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
-                                                    annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
-    }
+        
+        let googleDidHandle = GIDSignIn.sharedInstance().handleURL(url,sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String,annotation: options [UIApplicationOpenURLOptionsAnnotationKey])
+        
+        let facebookDidHandle = FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            openURL: url,
+            sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String,
+            annotation: options [UIApplicationOpenURLOptionsAnnotationKey])
+        if url.absoluteString.containsString("FACEBOOK_ID"){
+            return facebookDidHandle
+            
+        }
+        else{
+            return googleDidHandle
+            
+        }
+   }
     
-    func application(application: UIApplication,
-                     openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey:sourceApplication!,UIApplicationOpenURLOptionsAnnotationKey: annotation!]
-        return GIDSignIn.sharedInstance().handleURL(url,
-                                                    sourceApplication: sourceApplication,
-                                                    annotation: annotation)
+    func application(application:UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        let googleDidHandle = GIDSignIn.sharedInstance().handleURL(url,sourceApplication: sourceApplication,annotation: annotation)
+        
+        let facebookDidHandle = FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+        if url.absoluteString.containsString("FACEBOOK_ID"){
+        return facebookDidHandle
+        
+        }
+        else{
+            return googleDidHandle
+        
+        }
+    
     }
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,16 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-  
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
     
 
-    
-    
-    
-    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -68,6 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {

@@ -253,7 +253,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             print(!cell.isFavorate)
             if !cell.isFavorate
             {
-                ref.child("users/\(uid)/favourate/\(artwork.Name!)").setValue(["Address": "\(artwork.Address!)",
+                ref.child("users/\(uid)/favorite/\(artwork.Name!)").setValue(["Address": "\(artwork.Address!)",
                     "AlternateName": "",
                     "Artist": "\(artwork.Artist!)",
                     "Coordinates": "\(artwork.Coordinates!)",
@@ -268,7 +268,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             }
             else
             {
-            ref.child("users/\(uid)/favourate/\(artwork.Name!)").removeValue()
+            ref.child("users/\(uid)/favorite/\(artwork.Name!)").removeValue()
             
             }
         } else {

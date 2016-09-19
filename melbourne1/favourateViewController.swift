@@ -8,50 +8,145 @@
 
 import UIKit
 import Firebase
-class favourateViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+import CoreLocation
+import GoogleSignIn
+import FBSDKLoginKit
+class favourateViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, CLLocationManagerDelegate {
+    var artworks = [Artworks]()
+    var userid:String?
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var favourateTableView: UITableView!
     @IBAction func logInViewButton(sender: AnyObject) {
         
+    }
+    @IBAction func logout(sender: AnyObject) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        GIDSignIn.sharedInstance().signOut()
+        try!FIRAuth.auth()?.signOut()
     }
     override func viewWillAppear(animated: Bool) {
         self.favourateTableView.delegate = self
         self.favourateTableView.dataSource = self
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
+            self.userid = user.uid
+            self.favourateTableView.hidden = false
             self.loginButton.hidden = true
+            artworks.removeAll()
+            self.favourateTableView.reloadData()
+            fetchArtworks()
         } else {
             // No user is signed in.
             self.favourateTableView.hidden = true
+            self.loginButton.hidden = false
         }
 
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.favourateTableView.delegate = self
-        self.favourateTableView.dataSource = self
-        if let user = FIRAuth.auth()?.currentUser {
-            // User is signed in.
-            self.loginButton.hidden = true
-        } else {
-            // No user is signed in.
-            self.favourateTableView.hidden = true
-        }
-        
-            }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.favourateTableView.delegate = self
+//        self.favourateTableView.dataSource = self
+//        if let user = FIRAuth.auth()?.currentUser {
+//            // User is signed in.
+//          
+//        
+//            
+//            self.userid = user.uid
+//            print(self.userid)
+//            self.favourateTableView.hidden = false
+//            self.loginButton.hidden = true
+//            fetchArtworks()
+//        } else {
+//            // No user is signed in.
+//            self.favourateTableView.hidden = true
+//            self.loginButton.hidden = false
+//            
+//        }
+//        
+//            }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return  0
-    }
+        
+            return artworks.count
+        }
+        
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("favouriteTableCell", forIndexPath: indexPath) as! favouriteTableCell
+        
+        let locationManager1 = CLLocationManager()
+        locationManager1.delegate = self
+        locationManager1.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager1.requestWhenInUseAuthorization()
+        locationManager1.startUpdatingLocation()
+        let locValue:CLLocationCoordinate2D = locationManager1.location!.coordinate
+        
+        let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        cell.addressL.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.addressL.numberOfLines = 0;
+        cell.nameL.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.nameL.numberOfLines = 0;
+        
+        let artwork : Artworks
        
-        return UITableViewCell()
+            artwork = artworks[indexPath.row]
+        
+        cell.nameL.text = artwork.Name
+        
+        let fullNameArr = artwork.Coordinates!.componentsSeparatedByString(",")
+        
+        let firstName: String = fullNameArr[0]
+        let lastName: String = fullNameArr[1]
+        
+        let latitude1 = String(firstName.characters.dropFirst())
+        let longtitude1 = String(lastName.characters.dropLast())
+        
+        
+        let latitude2 = (latitude1  as NSString).doubleValue
+        let longitude2 = (longtitude1 as NSString).doubleValue
+        
+        let initialLocation = CLLocation(latitude: latitude2, longitude: longitude2)
+        
+        let distance = currentlocation.distanceFromLocation(initialLocation)
+        let doubleDis : Double = distance
+        let intDis : Int = Int(doubleDis)
+        
+        cell.addressL.text = "\(intDis)m"
+        if let photo = artwork.Photo{
+            cell.tableImageView.loadImageUsingCacheWithUrlString(photo)
+            print(photo)
+            
+        }
+        return cell
+
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
+    
+  
+    //get data from database
+    func fetchArtworks(){
+        //let initialLocation = CLLocation(latitude: -37.8885677, longitude: 145.045028)
+               //let i111 = self.locationManager1.locatio
+        let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
+        ref.child("users/\(self.userid!)/favorite").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject]
+            {
+                let artwork = Artworks()
+                artwork.setValuesForKeysWithDictionary(dictionary)
+                    self.artworks.append(artwork)
+                dispatch_async(dispatch_get_main_queue(),{self.favourateTableView.reloadData() } )
+            }
+            }, withCancelBlock: nil)
+       
+        
+        
+    }
+
 
 }

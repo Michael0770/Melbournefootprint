@@ -10,17 +10,24 @@ import UIKit
 
 class searchAllCellController: UITableViewCell {
     var isFavorate2 = NSUserDefaults.standardUserDefaults().boolForKey("isFavorate2")
-    
+    var onButtonTapped : (() -> Void)? = nil
+
     @IBOutlet weak var faButton: UIButton!
    
     @IBAction func isFav(sender: AnyObject) {
         if isFavorate2 == true {
             let image = UIImage(named: "Heart_icon.png")
             self.faButton.setImage(image, forState: UIControlState.Normal)
+            if let onButtonTapped = self.onButtonTapped {
+                onButtonTapped()
+            }
             print(NSUserDefaults.standardUserDefaults().boolForKey("isFavorate2"))
         } else {
             let image = UIImage(named: "heart_icon_selected.png")
             self.faButton.setImage(image, forState: UIControlState.Normal)
+            if let onButtonTapped = self.onButtonTapped {
+                onButtonTapped()
+            }
         }
         
         isFavorate2 = !isFavorate2
@@ -33,7 +40,7 @@ class searchAllCellController: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        var image = UIImage(named:"Heart_icon")
+        let image = UIImage(named:"Heart_icon")
         self.faButton.setImage(image, forState: UIControlState.Normal)
     }
     

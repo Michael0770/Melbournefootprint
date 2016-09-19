@@ -10,5 +10,6 @@
 #define melbourne1_Bridging_Header_h
 
 #import <GoogleSignIn/GoogleSignIn.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #endif /* melbourne1_Bridging_Header_h */
