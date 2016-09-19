@@ -36,6 +36,14 @@
 		A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */; };
 		A6BFB5AF1D65D1DB00E75E27 /* Artworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */; };
 		A6BFB5B21D66EB8000E75E27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5B11D66EB8000E75E27 /* Extensions.swift */; };
+		A6CD040E1D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD04051D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m */; };
+		A6CD040F1D8F7D6E00A9DD1B /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD04071D8F7D6E00A9DD1B /* MMDrawerController.m */; };
+		A6CD04101D8F7D6E00A9DD1B /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD040A1D8F7D6E00A9DD1B /* MMDrawerVisualState.m */; };
+		A6CD04111D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD040C1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m */; };
+		A6EDF5D71D8F785F00C3C220 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5D61D8F785F00C3C220 /* LeftSideViewController.swift */; };
+		A6EDF5DA1D8F787500C3C220 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5D81D8F787500C3C220 /* NotificationCell.swift */; };
+		A6EDF5DB1D8F787500C3C220 /* RadiusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5D91D8F787500C3C220 /* RadiusCell.swift */; };
+		A6EDF5DD1D8F7A0E00C3C220 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5DC1D8F7A0E00C3C220 /* MyTabBarViewController.swift */; };
 		AC6A5AD0C8A27223DB813900 /* Pods_melbourne1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5178336B52BFA64085ABA6C1 /* Pods_melbourne1.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +106,19 @@
 		A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favouriteTableCell.swift; sourceTree = "<group>"; };
 		A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artworks.swift; sourceTree = "<group>"; };
 		A6BFB5B11D66EB8000E75E27 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A6CD04041D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		A6CD04051D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		A6CD04061D8F7D6E00A9DD1B /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		A6CD04071D8F7D6E00A9DD1B /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		A6CD04081D8F7D6E00A9DD1B /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		A6CD04091D8F7D6E00A9DD1B /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		A6CD040A1D8F7D6E00A9DD1B /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		A6CD040B1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		A6CD040C1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		A6EDF5D61D8F785F00C3C220 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
+		A6EDF5D81D8F787500C3C220 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		A6EDF5D91D8F787500C3C220 /* RadiusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusCell.swift; sourceTree = "<group>"; };
+		A6EDF5DC1D8F7A0E00C3C220 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		B4D981BEB71355124FD691C8 /* Pods-melbourne1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-melbourne1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-melbourne1Tests/Pods-melbourne1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E938ED29A6598877F30A0376 /* Pods-melbourne1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-melbourne1UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-melbourne1UITests/Pods-melbourne1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,13 +190,18 @@
 			children = (
 				A6BFB5B01D66EB6C00E75E27 /* helpers */,
 				A640AC3A1D6494DC005A4F84 /* AppDelegate.swift */,
+				A6CD040D1D8F7D6E00A9DD1B /* MMDrawer */,
 				A640AC441D6494DC005A4F84 /* Assets.xcassets */,
 				4CBDB60D1D796A850022C57D /* Main.storyboard */,
 				A640AC461D6494DC005A4F84 /* LaunchScreen.storyboard */,
 				A640AC491D6494DC005A4F84 /* Info.plist */,
 				4C38FB601D770ECB0054D548 /* TestLocations.gpx */,
 				A640AC411D6494DC005A4F84 /* melbourne1.xcdatamodeld */,
+				A6EDF5DC1D8F7A0E00C3C220 /* MyTabBarViewController.swift */,
 				A640AC3C1D6494DC005A4F84 /* ViewDetailsController.swift */,
+				A6EDF5D81D8F787500C3C220 /* NotificationCell.swift */,
+				A6EDF5D91D8F787500C3C220 /* RadiusCell.swift */,
+				A6EDF5D61D8F785F00C3C220 /* LeftSideViewController.swift */,
 				A613B1CE1D65565B00619D2F /* TableViewController.swift */,
 				4CE1FA4F1D65F8F2003BBD68 /* MapViewController.swift */,
 				A613B1D01D655A0300619D2F /* TableViewCell.swift */,
@@ -221,6 +247,23 @@
 				A6BFB5B11D66EB8000E75E27 /* Extensions.swift */,
 			);
 			name = helpers;
+			sourceTree = "<group>";
+		};
+		A6CD040D1D8F7D6E00A9DD1B /* MMDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				A6CD04041D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.h */,
+				A6CD04051D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m */,
+				A6CD04061D8F7D6E00A9DD1B /* MMDrawerController.h */,
+				A6CD04071D8F7D6E00A9DD1B /* MMDrawerController.m */,
+				A6CD04081D8F7D6E00A9DD1B /* MMDrawerController+Subclass.h */,
+				A6CD04091D8F7D6E00A9DD1B /* MMDrawerVisualState.h */,
+				A6CD040A1D8F7D6E00A9DD1B /* MMDrawerVisualState.m */,
+				A6CD040B1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.h */,
+				A6CD040C1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m */,
+			);
+			name = MMDrawer;
+			path = "../../Melboure-Footprint3/melbourne1";
 			sourceTree = "<group>";
 		};
 		D6510980E22D57E473CD968E /* Pods */ = {
@@ -507,20 +550,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CD040E1D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m in Sources */,
+				A6EDF5DD1D8F7A0E00C3C220 /* MyTabBarViewController.swift in Sources */,
 				A6BFB5AF1D65D1DB00E75E27 /* Artworks.swift in Sources */,
+				A6EDF5DB1D8F787500C3C220 /* RadiusCell.swift in Sources */,
 				4C57D9D61D673398007A3FAF /* JSON.swift in Sources */,
 				A613B1D11D655A0300619D2F /* TableViewCell.swift in Sources */,
 				A61796E51D89264600AF0330 /* favourateViewController.swift in Sources */,
 				A640AC3D1D6494DC005A4F84 /* ViewDetailsController.swift in Sources */,
 				A640AC3B1D6494DC005A4F84 /* AppDelegate.swift in Sources */,
+				A6CD04111D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m in Sources */,
 				A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */,
+				A6CD040F1D8F7D6E00A9DD1B /* MMDrawerController.m in Sources */,
 				4CE1FA5F1D660D9B003BBD68 /* MapViewController.swift in Sources */,
+				A6EDF5DA1D8F787500C3C220 /* NotificationCell.swift in Sources */,
 				A61796E71D8A30D500AF0330 /* searchAllController.swift in Sources */,
 				4C38FB651D77B2160054D548 /* Geofence.swift in Sources */,
 				A6BFB5B21D66EB8000E75E27 /* Extensions.swift in Sources */,
+				A6EDF5D71D8F785F00C3C220 /* LeftSideViewController.swift in Sources */,
 				A61796E91D8A310100AF0330 /* searchAllCellController.swift in Sources */,
 				4CE1FA541D660517003BBD68 /* VCMapView.swift in Sources */,
 				A640AC431D6494DC005A4F84 /* melbourne1.xcdatamodeld in Sources */,
+				A6CD04101D8F7D6E00A9DD1B /* MMDrawerVisualState.m in Sources */,
 				A613B1CF1D65565B00619D2F /* TableViewController.swift in Sources */,
 				4CE1FA571D660BE5003BBD68 /* ArtworkForMap.swift in Sources */,
 				4C38FB5F1D76FF5A0054D548 /* Utilities.swift in Sources */,
@@ -659,6 +710,7 @@
 			baseConfigurationReference = 6AD4FBBDFFF43FB99D70CC1E /* Pods-melbourne1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -670,6 +722,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = monash.melbourne1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "melbourne1/melbourne1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -678,6 +732,7 @@
 			baseConfigurationReference = 185BCF5E1126ABBF69CD94B7 /* Pods-melbourne1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -689,6 +744,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = monash.melbourne1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "melbourne1/melbourne1-Bridging-Header.h";
 			};
 			name = Release;
 		};

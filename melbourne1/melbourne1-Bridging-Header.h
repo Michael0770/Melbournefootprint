@@ -11,5 +11,6 @@
 
 #import <GoogleSignIn/GoogleSignIn.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "MMDrawerController.h"
 
 #endif /* melbourne1_Bridging_Header_h */

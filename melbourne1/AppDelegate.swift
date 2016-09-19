@@ -17,6 +17,7 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
+    var drawerContainer: MMDrawerController?
     let locationManager = CLLocationManager()
 
     func application(application: UIApplication,
@@ -68,11 +69,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        return true
+            buildNavigationDrawerInterface()
+            
+            return true
     }
     
-    
-
+    func buildNavigationDrawerInterface(){
+        let mainStoryBoard : UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+        
+        let mainPage:UITabBarController = mainStoryBoard.instantiateViewControllerWithIdentifier("MyTabBarViewController")
+            as! MyTabBarViewController
+        
+        let leftSideMenu: LeftSideViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideViewController") as! LeftSideViewController
+        
+        let leftSideMenuNav = UINavigationController(rootViewController:leftSideMenu)
+        
+        drawerContainer = MMDrawerController(centerViewController: mainPage,leftDrawerViewController: leftSideMenuNav)
+        
+        drawerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView
+        drawerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView
+        
+        window?.rootViewController = drawerContainer
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

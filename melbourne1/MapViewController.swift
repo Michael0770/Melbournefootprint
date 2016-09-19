@@ -210,7 +210,11 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     
     
 
-    
+    @IBAction func leftSideButtonTapped(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.drawerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        
+    }
     
     func fetchArtworks(){
 
