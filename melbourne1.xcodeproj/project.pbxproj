@@ -33,13 +33,13 @@
 		A640AC431D6494DC005A4F84 /* melbourne1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A640AC411D6494DC005A4F84 /* melbourne1.xcdatamodeld */; };
 		A640AC451D6494DC005A4F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A640AC441D6494DC005A4F84 /* Assets.xcassets */; };
 		A640AC481D6494DC005A4F84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A640AC461D6494DC005A4F84 /* LaunchScreen.storyboard */; };
+		A68E39521D8F841500F198CE /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E394A1D8F841500F198CE /* MMDrawerBarButtonItem.m */; };
+		A68E39531D8F841500F198CE /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E394C1D8F841500F198CE /* MMDrawerController.m */; };
+		A68E39541D8F841500F198CE /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E394F1D8F841500F198CE /* MMDrawerVisualState.m */; };
+		A68E39551D8F841500F198CE /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E39511D8F841500F198CE /* UIViewController+MMDrawerController.m */; };
 		A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */; };
 		A6BFB5AF1D65D1DB00E75E27 /* Artworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */; };
 		A6BFB5B21D66EB8000E75E27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5B11D66EB8000E75E27 /* Extensions.swift */; };
-		A6CD040E1D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD04051D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m */; };
-		A6CD040F1D8F7D6E00A9DD1B /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD04071D8F7D6E00A9DD1B /* MMDrawerController.m */; };
-		A6CD04101D8F7D6E00A9DD1B /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD040A1D8F7D6E00A9DD1B /* MMDrawerVisualState.m */; };
-		A6CD04111D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD040C1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m */; };
 		A6EDF5D71D8F785F00C3C220 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5D61D8F785F00C3C220 /* LeftSideViewController.swift */; };
 		A6EDF5DA1D8F787500C3C220 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5D81D8F787500C3C220 /* NotificationCell.swift */; };
 		A6EDF5DB1D8F787500C3C220 /* RadiusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDF5D91D8F787500C3C220 /* RadiusCell.swift */; };
@@ -103,18 +103,18 @@
 		A640AC591D6494DC005A4F84 /* melbourne1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = melbourne1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A640AC5D1D6494DC005A4F84 /* melbourne1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = melbourne1UITests.swift; sourceTree = "<group>"; };
 		A640AC5F1D6494DC005A4F84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A68E39491D8F841500F198CE /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		A68E394A1D8F841500F198CE /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		A68E394B1D8F841500F198CE /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		A68E394C1D8F841500F198CE /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		A68E394D1D8F841500F198CE /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		A68E394E1D8F841500F198CE /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		A68E394F1D8F841500F198CE /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		A68E39501D8F841500F198CE /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		A68E39511D8F841500F198CE /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favouriteTableCell.swift; sourceTree = "<group>"; };
 		A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artworks.swift; sourceTree = "<group>"; };
 		A6BFB5B11D66EB8000E75E27 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		A6CD04041D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
-		A6CD04051D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
-		A6CD04061D8F7D6E00A9DD1B /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
-		A6CD04071D8F7D6E00A9DD1B /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
-		A6CD04081D8F7D6E00A9DD1B /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
-		A6CD04091D8F7D6E00A9DD1B /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
-		A6CD040A1D8F7D6E00A9DD1B /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
-		A6CD040B1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
-		A6CD040C1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		A6EDF5D61D8F785F00C3C220 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
 		A6EDF5D81D8F787500C3C220 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		A6EDF5D91D8F787500C3C220 /* RadiusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusCell.swift; sourceTree = "<group>"; };
@@ -188,9 +188,9 @@
 		A640AC391D6494DC005A4F84 /* melbourne1 */ = {
 			isa = PBXGroup;
 			children = (
+				A68E39561D8F842400F198CE /* MMDrawer */,
 				A6BFB5B01D66EB6C00E75E27 /* helpers */,
 				A640AC3A1D6494DC005A4F84 /* AppDelegate.swift */,
-				A6CD040D1D8F7D6E00A9DD1B /* MMDrawer */,
 				A640AC441D6494DC005A4F84 /* Assets.xcassets */,
 				4CBDB60D1D796A850022C57D /* Main.storyboard */,
 				A640AC461D6494DC005A4F84 /* LaunchScreen.storyboard */,
@@ -241,29 +241,28 @@
 			path = melbourne1UITests;
 			sourceTree = "<group>";
 		};
+		A68E39561D8F842400F198CE /* MMDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				A68E39491D8F841500F198CE /* MMDrawerBarButtonItem.h */,
+				A68E394A1D8F841500F198CE /* MMDrawerBarButtonItem.m */,
+				A68E394B1D8F841500F198CE /* MMDrawerController.h */,
+				A68E394C1D8F841500F198CE /* MMDrawerController.m */,
+				A68E394D1D8F841500F198CE /* MMDrawerController+Subclass.h */,
+				A68E394E1D8F841500F198CE /* MMDrawerVisualState.h */,
+				A68E394F1D8F841500F198CE /* MMDrawerVisualState.m */,
+				A68E39501D8F841500F198CE /* UIViewController+MMDrawerController.h */,
+				A68E39511D8F841500F198CE /* UIViewController+MMDrawerController.m */,
+			);
+			name = MMDrawer;
+			sourceTree = "<group>";
+		};
 		A6BFB5B01D66EB6C00E75E27 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
 				A6BFB5B11D66EB8000E75E27 /* Extensions.swift */,
 			);
 			name = helpers;
-			sourceTree = "<group>";
-		};
-		A6CD040D1D8F7D6E00A9DD1B /* MMDrawer */ = {
-			isa = PBXGroup;
-			children = (
-				A6CD04041D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.h */,
-				A6CD04051D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m */,
-				A6CD04061D8F7D6E00A9DD1B /* MMDrawerController.h */,
-				A6CD04071D8F7D6E00A9DD1B /* MMDrawerController.m */,
-				A6CD04081D8F7D6E00A9DD1B /* MMDrawerController+Subclass.h */,
-				A6CD04091D8F7D6E00A9DD1B /* MMDrawerVisualState.h */,
-				A6CD040A1D8F7D6E00A9DD1B /* MMDrawerVisualState.m */,
-				A6CD040B1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.h */,
-				A6CD040C1D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m */,
-			);
-			name = MMDrawer;
-			path = "../../Melboure-Footprint3/melbourne1";
 			sourceTree = "<group>";
 		};
 		D6510980E22D57E473CD968E /* Pods */ = {
@@ -550,7 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6CD040E1D8F7D6E00A9DD1B /* MMDrawerBarButtonItem.m in Sources */,
+				A68E39521D8F841500F198CE /* MMDrawerBarButtonItem.m in Sources */,
 				A6EDF5DD1D8F7A0E00C3C220 /* MyTabBarViewController.swift in Sources */,
 				A6BFB5AF1D65D1DB00E75E27 /* Artworks.swift in Sources */,
 				A6EDF5DB1D8F787500C3C220 /* RadiusCell.swift in Sources */,
@@ -559,9 +558,9 @@
 				A61796E51D89264600AF0330 /* favourateViewController.swift in Sources */,
 				A640AC3D1D6494DC005A4F84 /* ViewDetailsController.swift in Sources */,
 				A640AC3B1D6494DC005A4F84 /* AppDelegate.swift in Sources */,
-				A6CD04111D8F7D6E00A9DD1B /* UIViewController+MMDrawerController.m in Sources */,
+				A68E39551D8F841500F198CE /* UIViewController+MMDrawerController.m in Sources */,
 				A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */,
-				A6CD040F1D8F7D6E00A9DD1B /* MMDrawerController.m in Sources */,
+				A68E39531D8F841500F198CE /* MMDrawerController.m in Sources */,
 				4CE1FA5F1D660D9B003BBD68 /* MapViewController.swift in Sources */,
 				A6EDF5DA1D8F787500C3C220 /* NotificationCell.swift in Sources */,
 				A61796E71D8A30D500AF0330 /* searchAllController.swift in Sources */,
@@ -571,7 +570,7 @@
 				A61796E91D8A310100AF0330 /* searchAllCellController.swift in Sources */,
 				4CE1FA541D660517003BBD68 /* VCMapView.swift in Sources */,
 				A640AC431D6494DC005A4F84 /* melbourne1.xcdatamodeld in Sources */,
-				A6CD04101D8F7D6E00A9DD1B /* MMDrawerVisualState.m in Sources */,
+				A68E39541D8F841500F198CE /* MMDrawerVisualState.m in Sources */,
 				A613B1CF1D65565B00619D2F /* TableViewController.swift in Sources */,
 				4CE1FA571D660BE5003BBD68 /* ArtworkForMap.swift in Sources */,
 				4C38FB5F1D76FF5A0054D548 /* Utilities.swift in Sources */,
@@ -716,6 +715,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseAnalytics/Frameworks/frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseAuth/Frameworks/frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseDatabase/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseInstanceID/Frameworks/frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleAppUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleAuthUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleInterchangeUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleNetworkingUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleParsingUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleSignIn/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleSymbolUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleUtilities/Frameworks",
 				);
 				INFOPLIST_FILE = melbourne1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -738,6 +749,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseAnalytics/Frameworks/frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseAuth/Frameworks/frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseDatabase/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/FirebaseInstanceID/Frameworks/frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleAppUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleAuthUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleInterchangeUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleNetworkingUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleParsingUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleSignIn/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleSymbolUtilities/Frameworks",
+					"$(PROJECT_DIR)/melbourne1/Melboure-Footprint3/Pods/GoogleUtilities/Frameworks",
 				);
 				INFOPLIST_FILE = melbourne1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
