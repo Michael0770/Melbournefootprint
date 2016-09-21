@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import MapKit
+import CoreLocation
 
 
 class ViewDetailsController: UIViewController,UIScrollViewDelegate {
@@ -79,6 +81,31 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func navigation(sender: AnyObject) {
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        
+        let fullNameArr = currentArtwork!.Coordinates!.componentsSeparatedByString(",")
+        
+        let firstName: String = fullNameArr[0]
+        let lastName: String = fullNameArr[1]
+        
+        let latitude1 = String(firstName.characters.dropFirst())
+        let longtitude1 = String(lastName.characters.dropLast())
+        
+        
+        let latitude2 = (latitude1  as NSString).doubleValue
+        let longitude2 = (longtitude1 as NSString).doubleValue
+        
+        let inLocation = CLLocationCoordinate2D(latitude: latitude2, longitude: longitude2)
+
+        let artMap = ArtworkForMap(title: (currentArtwork?.Name)!, locationName: (currentArtwork?.Address)!, discipline: (currentArtwork?.AlternateName)!, coordinate: inLocation)
+
+        artMap.mapItem().openInMapsWithLaunchOptions(launchOptions)
+
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

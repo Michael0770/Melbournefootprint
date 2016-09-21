@@ -17,6 +17,9 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
     //add search function
     var artworks = [Artworks]()
     var filteredArtwork = [Artworks]()
+    var menuView: BTNavigationDropdownMenu!
+    var category : String?
+    
     func filterContentForSearchText(searchText:String,scope:String = "All"){
         filteredArtwork = artworks.filter{
             artwork in
@@ -29,14 +32,41 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.category = "All"
+        self.fetchArtworks()
+        let items = ["All", "Artwork", "HeritageBuilding", "Gallery/Museum"]
+        //self.selectedCellLabel.text = items.first
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        
-        fetchArtworks()
+        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "All", items: items)
+        menuView.cellHeight = 50
+        menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
+        menuView.cellSelectionColor = UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
+        menuView.shouldKeepSelectedCellColor = true
+        menuView.cellTextLabelColor = UIColor.whiteColor()
+        menuView.cellTextLabelFont = UIFont(name: "Avenir-Heavy", size: 17)
+        menuView.cellTextLabelAlignment = .Left
+        menuView.arrowPadding = 15
+        menuView.animationDuration = 0.5
+        menuView.maskBackgroundColor = UIColor.blackColor()
+        menuView.maskBackgroundOpacity = 0.3
+        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
+        print("Did select item at index: \(indexPath)")
+        self.artworks.removeAll()
+        self.tableView.reloadData()
+        self.category = items[indexPath]
+        self.fetchArtworks()
+        }
+        self.navigationItem.titleView = menuView
+       
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
+        self.searchController.hidesNavigationBarDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
-        
+
     }
     
     //get data from database
@@ -79,7 +109,12 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
                 let initialLocation = CLLocation(latitude: latitude2, longitude: longitude2)
                 
                 let distance = currentlocation.distanceFromLocation(initialLocation)
-                if self.flag == true{
+                
+                if self.flag == true && self.category == "All"{
+                    self.artworks.append(artwork)
+                
+                }
+                else if self.flag == true && artwork.Structure == self.category{
                     self.artworks.append(artwork)
                 }
                     //judge nearby distance
@@ -245,6 +280,8 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
                 // No user is signed in.
             }
         }
+        
+      
 
         return cell
     }

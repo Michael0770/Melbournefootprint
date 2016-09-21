@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     }
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         // Override point for customization after application launch.
         let supportedNotificationTypes:UIUserNotificationType = [.Alert, .Badge, .Sound]
         let notificationSettings = UIUserNotificationSettings(forTypes: supportedNotificationTypes, categories: nil)
@@ -69,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-            buildNavigationDrawerInterface()
+        buildNavigationDrawerInterface()
             
             return true
     }

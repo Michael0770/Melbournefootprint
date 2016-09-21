@@ -56,9 +56,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         self.flag = false
         fetchArtworks()
         searchController.searchResultsUpdater = self
@@ -296,8 +293,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             }else {
                 artworkDetail = artworks[indexPath.row]
             }
-            
-            
+
             controller.currentArtwork = artworkDetail            //self.tabBarController?.tabBar.hidden = true
             controller.hidesBottomBarWhenPushed = true
         }
@@ -313,4 +309,6 @@ extension TableViewController : UISearchResultsUpdating {
     {
         filterContentForSearchText(searchController.searchBar.text!)
 }
+    
+    
 }
