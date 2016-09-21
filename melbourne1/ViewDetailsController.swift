@@ -24,6 +24,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
     var newImageView : UIImageView!
     var currentArtwork : Artworks?
     @IBOutlet weak var textL: UILabel!
+    @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -50,7 +51,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
         self.dateLabel.text = currentArtwork?.Date
         self.artistLabel.text = currentArtwork?.Artist
         self.typeLabel.text = currentArtwork?.Structure
-        
+        self.regionLabel.text = currentArtwork?.location
         self.textL.text = currentArtwork?.Descriptions
         self.textL.sizeToFit()
         imageView.image = nil
