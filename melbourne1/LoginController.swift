@@ -12,19 +12,17 @@ import GoogleSignIn
 import FirebaseDatabase
 import FBSDKLoginKit
 class LoginController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate,FBSDKLoginButtonDelegate {
-
+    
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
     
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    self.facebookLoginButton.center = self.view.center
-        self.googleLoginButton.center = self.view.center
-    self.facebookLoginButton.readPermissions=["public_profile","email","user_friends"]
+        self.facebookLoginButton.readPermissions=["public_profile","email","user_friends"]
         self.facebookLoginButton.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-       GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         // Uncomment to automatically sign in the user.
         //GIDSignIn.sharedInstance().signInSilently()
@@ -33,7 +31,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate,F
         // ...
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +50,10 @@ class LoginController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate,F
                 print(error?.localizedDescription)
                 return
             }
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.navigationController?.popViewControllerAnimated(true)
+                
+            })
             print("login google")
             if let user = FIRAuth.auth()?.currentUser {
                 let name = user.displayName
@@ -72,46 +74,51 @@ class LoginController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate,F
             }
             
         })
-    
+        
     }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
         try! FIRAuth.auth()?.signOut()
-}
+    }
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         if error != nil{
-        
+            
             print(error.localizedDescription)
             return
         }
         
         if FBSDKAccessToken.currentAccessToken() != nil
         {
-          FIRAuth.auth()?.signInWithCredential(FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString), completion: {(user,error)in
-            if error != nil{
-            print(error?.localizedDescription)
-                return
-            }
-            print("login facebook")
-            if let user = FIRAuth.auth()?.currentUser {
-                let name = user.displayName
-                let email = user.email
-                let uid = user.uid;  // The user's ID, unique to the Firebase project.
-                // Do NOT use this value to authenticate with
-                // your backend server, if you have one. Use
-                // getTokenWithCompletion:completion: instead.
-                print(name)
-                print(email)
-                print(uid)
-                let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
-                ref.child("users/\(uid)/email").setValue(email)
+            FIRAuth.auth()?.signInWithCredential(FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString), completion: {(user,error)in
+                if error != nil{
+                    print(error?.localizedDescription)
+                    return
+                }
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.navigationController?.popViewControllerAnimated(true)
+                    
+                })
+                print("login facebook")
+                if let user = FIRAuth.auth()?.currentUser {
+                    let name = user.displayName
+                    let email = user.email
+                    let uid = user.uid;  // The user's ID, unique to the Firebase project.
+                    // Do NOT use this value to authenticate with
+                    // your backend server, if you have one. Use
+                    // getTokenWithCompletion:completion: instead.
+                    print(name)
+                    print(email)
+                    print(uid)
+                    let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
+                    ref.child("users/\(uid)/email").setValue(email)
+                    
+                    
+                } else {
+                    // No user is signed in.
+                    print("no user")
+                }
                 
-            } else {
-                // No user is signed in.
-                print("no user")
-            }
-
-        })
+            })
         }
     }
     func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {

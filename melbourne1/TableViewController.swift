@@ -15,32 +15,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     var flag : Bool?
     var index = 1;
     let searchController = UISearchController(searchResultsController:nil)
-    @IBOutlet weak var allItemT: UIBarButtonItem!
-    //set nearby and all transform
-    @IBAction func allItem(sender: AnyObject) {
-        if self.index%2 != 0{
-            self.flag = true
-            artworks.removeAll()
-            self.tableView.reloadData()
-            fetchArtworks()
-            self.allItemT.title="Nearby"
-            self.navigationItem.title = "ALL"
-            self.index = index + 1
-        }
-        else
-        {
-            self.flag = false
-            artworks.removeAll()
-            self.tableView.reloadData()
-            fetchArtworks()
-            self.allItemT.title="All"
-            self.navigationItem.title = "Nearby"
-            self.index = index + 1
-        }
-
-    }
-    
-    
     //add search function
     var artworks = [Artworks]()
     var filteredArtwork = [Artworks]()
@@ -58,10 +32,10 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.flag = false
         fetchArtworks()
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        tableView.tableHeaderView = searchController.searchBar
         
     }
     
@@ -241,6 +215,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             cell.tableImageView.loadImageUsingCacheWithUrlString(photo)
             print(photo)
             
+        }
+        cell.noLoginButtonTapped = {
+            let alertController = UIAlertController(title: "Reminder", message:
+                "Please sign in to add favorite", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
         cell.onButtonTapped = {
         if let user = FIRAuth.auth()?.currentUser {

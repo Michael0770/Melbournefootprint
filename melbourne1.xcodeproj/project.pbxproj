@@ -39,6 +39,7 @@
 		A68E39531D8F841500F198CE /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E394C1D8F841500F198CE /* MMDrawerController.m */; };
 		A68E39541D8F841500F198CE /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E394F1D8F841500F198CE /* MMDrawerVisualState.m */; };
 		A68E39551D8F841500F198CE /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E39511D8F841500F198CE /* UIViewController+MMDrawerController.m */; };
+		A6A2A6541D92649C0046FC34 /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A2A6531D92649C0046FC34 /* UserViewCell.swift */; };
 		A6ABDA711D8EB0DC00F19312 /* favouriteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */; };
 		A6BFB5AF1D65D1DB00E75E27 /* Artworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */; };
 		A6BFB5B21D66EB8000E75E27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BFB5B11D66EB8000E75E27 /* Extensions.swift */; };
@@ -116,6 +117,7 @@
 		A68E394F1D8F841500F198CE /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		A68E39501D8F841500F198CE /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		A68E39511D8F841500F198CE /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		A6A2A6531D92649C0046FC34 /* UserViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		A6ABDA701D8EB0DC00F19312 /* favouriteTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favouriteTableCell.swift; sourceTree = "<group>"; };
 		A6BFB5AE1D65D1DB00E75E27 /* Artworks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artworks.swift; sourceTree = "<group>"; };
 		A6BFB5B11D66EB8000E75E27 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				4C57D9D51D673398007A3FAF /* JSON.swift */,
 				4C38FB5E1D76FF5A0054D548 /* Utilities.swift */,
 				A62349E21D88428A0074FA5D /* LoginController.swift */,
+				A6A2A6531D92649C0046FC34 /* UserViewCell.swift */,
 				A61796E31D891E9200AF0330 /* melbourne1-Bridging-Header.h */,
 				A61796E41D89264600AF0330 /* favourateViewController.swift */,
 				A61796E81D8A310100AF0330 /* searchAllCellController.swift */,
@@ -571,6 +574,7 @@
 				A68E39531D8F841500F198CE /* MMDrawerController.m in Sources */,
 				4CE1FA5F1D660D9B003BBD68 /* MapViewController.swift in Sources */,
 				A6EDF5DA1D8F787500C3C220 /* NotificationCell.swift in Sources */,
+				A6A2A6541D92649C0046FC34 /* UserViewCell.swift in Sources */,
 				A61796E71D8A30D500AF0330 /* searchAllController.swift in Sources */,
 				4C38FB651D77B2160054D548 /* Geofence.swift in Sources */,
 				A6BFB5B21D66EB8000E75E27 /* Extensions.swift in Sources */,

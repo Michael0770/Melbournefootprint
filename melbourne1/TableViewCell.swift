@@ -7,31 +7,41 @@
 //
 
 import UIKit
-
+import Firebase
 class TableViewCell: UITableViewCell {
     var onButtonTapped : (() -> Void)? = nil
     var isFavorate = NSUserDefaults.standardUserDefaults().boolForKey("isFavorate")
-    
+    var noLoginButtonTapped : (() -> Void)? = nil
+
     @IBOutlet weak var faButton: UIButton!
     @IBAction func isFav(sender: AnyObject) {
-        if isFavorate == true {
-            let image = UIImage(named: "Heart_icon.png")
-            self.faButton.setImage(image, forState: UIControlState.Normal)
-            if let onButtonTapped = self.onButtonTapped {
-                onButtonTapped()
+        if let user = FIRAuth.auth()?.currentUser {
+            if isFavorate == true {
+                if let onButtonTapped = self.onButtonTapped {
+                    onButtonTapped()
+                }
+                let image = UIImage(named: "Heart_icon.png")
+                self.faButton.setImage(image, forState: UIControlState.Normal)
+                
+                print(NSUserDefaults.standardUserDefaults().boolForKey("isFavorate"))
+            } else {
+                if let onButtonTapped = self.onButtonTapped {
+                    onButtonTapped()
+                }
+                let image = UIImage(named: "heart_icon_selected.png")
+                self.faButton.setImage(image, forState: UIControlState.Normal)
+                
             }
-            print(NSUserDefaults.standardUserDefaults().boolForKey("isFavorate"))
-        } else {
-            if let onButtonTapped = self.onButtonTapped {
-                onButtonTapped()
-            }
-            let image = UIImage(named: "heart_icon_selected.png")
-            self.faButton.setImage(image, forState: UIControlState.Normal)
+            
+            isFavorate = !isFavorate
+            NSUserDefaults.standardUserDefaults().setBool(isFavorate, forKey: "isFavorate")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
-        
-        isFavorate = !isFavorate
-    NSUserDefaults.standardUserDefaults().setBool(isFavorate, forKey: "isFavorate")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        else{
+            if let noLoginButtonTapped = self.noLoginButtonTapped{
+                noLoginButtonTapped()
+            }
+        }
     }
     @IBOutlet weak var tableImageView: UIImageView!
     @IBOutlet weak var nameL: UILabel!

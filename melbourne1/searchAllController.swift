@@ -250,6 +250,12 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
             print(photo)
             
         }
+        cell.noLoginButtonTapped = {
+            let alertController = UIAlertController(title: "Reminder", message:
+            "Please sign in to add favorite", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+}
         cell.onButtonTapped = {
             if let user = FIRAuth.auth()?.currentUser {
                 // User is signed in.
@@ -278,6 +284,7 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
                 }
             } else {
                 // No user is signed in.
+                
             }
         }
         

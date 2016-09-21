@@ -19,12 +19,12 @@ class favourateViewController: UIViewController,UITableViewDataSource,UITableVie
     @IBAction func logInViewButton(sender: AnyObject) {
         
     }
-    @IBAction func logout(sender: AnyObject) {
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut()
-        GIDSignIn.sharedInstance().signOut()
-        try!FIRAuth.auth()?.signOut()
+    
+    @IBAction func favoriteLoginAction(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.drawerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
+    
     override func viewWillAppear(animated: Bool) {
         self.favourateTableView.delegate = self
         self.favourateTableView.dataSource = self
@@ -41,37 +41,37 @@ class favourateViewController: UIViewController,UITableViewDataSource,UITableVie
             self.favourateTableView.hidden = true
             self.loginButton.hidden = false
         }
-
+        
     }
-
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.favourateTableView.delegate = self
-//        self.favourateTableView.dataSource = self
-//        if let user = FIRAuth.auth()?.currentUser {
-//            // User is signed in.
-//          
-//        
-//            
-//            self.userid = user.uid
-//            print(self.userid)
-//            self.favourateTableView.hidden = false
-//            self.loginButton.hidden = true
-//            fetchArtworks()
-//        } else {
-//            // No user is signed in.
-//            self.favourateTableView.hidden = true
-//            self.loginButton.hidden = false
-//            
-//        }
-//        
-//            }
+    
+    //    override func viewDidLoad() {
+    //        super.viewDidLoad()
+    //        self.favourateTableView.delegate = self
+    //        self.favourateTableView.dataSource = self
+    //        if let user = FIRAuth.auth()?.currentUser {
+    //            // User is signed in.
+    //
+    //
+    //
+    //            self.userid = user.uid
+    //            print(self.userid)
+    //            self.favourateTableView.hidden = false
+    //            self.loginButton.hidden = true
+    //            fetchArtworks()
+    //        } else {
+    //            // No user is signed in.
+    //            self.favourateTableView.hidden = true
+    //            self.loginButton.hidden = false
+    //
+    //        }
+    //
+    //            }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-            return artworks.count
-        }
-        
+        return artworks.count
+    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("favouriteTableCell", forIndexPath: indexPath) as! favouriteTableCell
@@ -91,8 +91,8 @@ class favourateViewController: UIViewController,UITableViewDataSource,UITableVie
         cell.nameL.numberOfLines = 0;
         
         let artwork : Artworks
-       
-            artwork = artworks[indexPath.row]
+        
+        artwork = artworks[indexPath.row]
         
         cell.nameL.text = artwork.Name
         
@@ -121,32 +121,74 @@ class favourateViewController: UIViewController,UITableViewDataSource,UITableVie
             
         }
         return cell
-
+        
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
     
-  
+    // Override to support conditional editing of the table view.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+        
+    }
+    
+    
+    
+    // Override to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
+            ref.child("users/\(self.userid!)/favorite/\(artworks[indexPath.row].Name!)").removeValue()
+            self.artworks.removeAtIndex(indexPath.row)
+            self.favourateTableView.reloadData()
+        }
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "viewArtwork3"
+        {
+            
+            let indexPath = self.favourateTableView.indexPathForSelectedRow!
+            let controller: ViewDetailsController = segue.destinationViewController
+                as! ViewDetailsController
+            let artworkDetail: Artworks
+            artworkDetail = artworks[indexPath.row]
+            
+            
+            controller.currentArtwork = artworkDetail            //self.tabBarController?.tabBar.hidden = true
+            controller.hidesBottomBarWhenPushed = true
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
+    
+    
+    
     //get data from database
     func fetchArtworks(){
         //let initialLocation = CLLocation(latitude: -37.8885677, longitude: 145.045028)
-               //let i111 = self.locationManager1.locatio
+        //let i111 = self.locationManager1.locatio
         let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
         ref.child("users/\(self.userid!)/favorite").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]
             {
                 let artwork = Artworks()
                 artwork.setValuesForKeysWithDictionary(dictionary)
-                    self.artworks.append(artwork)
+                self.artworks.append(artwork)
                 dispatch_async(dispatch_get_main_queue(),{self.favourateTableView.reloadData() } )
             }
             }, withCancelBlock: nil)
-       
+        
         
         
     }
-
-
+    
+    
 }

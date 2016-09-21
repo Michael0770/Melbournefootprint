@@ -7,32 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 class searchAllCellController: UITableViewCell {
     var isFavorate2 = NSUserDefaults.standardUserDefaults().boolForKey("isFavorate2")
     var onButtonTapped : (() -> Void)? = nil
-
+    var noLoginButtonTapped : (() -> Void)? = nil
     @IBOutlet weak var faButton: UIButton!
    
     @IBAction func isFav(sender: AnyObject) {
+        if let user = FIRAuth.auth()?.currentUser {
         if isFavorate2 == true {
+            if let onButtonTapped = self.onButtonTapped {
+                onButtonTapped()
+            }
             let image = UIImage(named: "Heart_icon.png")
             self.faButton.setImage(image, forState: UIControlState.Normal)
-            if let onButtonTapped = self.onButtonTapped {
-                onButtonTapped()
-            }
+           
             print(NSUserDefaults.standardUserDefaults().boolForKey("isFavorate2"))
         } else {
-            let image = UIImage(named: "heart_icon_selected.png")
-            self.faButton.setImage(image, forState: UIControlState.Normal)
             if let onButtonTapped = self.onButtonTapped {
                 onButtonTapped()
             }
+            let image = UIImage(named: "heart_icon_selected.png")
+            self.faButton.setImage(image, forState: UIControlState.Normal)
+            
         }
-        
+       
         isFavorate2 = !isFavorate2
         NSUserDefaults.standardUserDefaults().setBool(isFavorate2, forKey: "isFavorate2")
         NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        else{
+            if let noLoginButtonTapped = self.noLoginButtonTapped{
+           noLoginButtonTapped()
+            }
+        }
     }
     @IBOutlet weak var tableImageView: UIImageView!
     @IBOutlet weak var nameL: UILabel!
