@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2520" y="-1276"/>
+            <point key="canvasLocation" x="1588" y="472"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="G6l-U9-fTe">
@@ -362,8 +362,8 @@
                                     <action selector="logInViewButton:" destination="YJK-x1-u97" eventType="touchUpInside" id="JAW-44-ngL"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UAp-QF-SJM">
-                                <rect key="frame" x="0.0" y="64" width="600" height="213"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UAp-QF-SJM">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouriteTableCell" rowHeight="102" id="fOZ-pp-83k" customClass="favouriteTableCell" customModule="melbourne1" customModuleProvider="target">
@@ -412,6 +412,7 @@
                                             <outlet property="addressL" destination="y8K-lr-aFq" id="aXr-Fa-pY8"/>
                                             <outlet property="nameL" destination="ULK-OL-ORn" id="NBS-MC-6Gr"/>
                                             <outlet property="tableImageView" destination="QCA-n6-QtL" id="lKC-Uz-VWb"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="viewArtwork3" id="LAx-ai-qwI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -921,6 +922,6 @@
         <image name="viewNavigation" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1T9-oe-y9y"/>
+        <segue reference="LAx-ai-qwI"/>
     </inferredMetricsTieBreakers>
 </document>

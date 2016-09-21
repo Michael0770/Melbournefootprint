@@ -23,6 +23,7 @@ class favourateViewController: UIViewController,UITableViewDataSource,UITableVie
     @IBAction func favoriteLoginAction(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.drawerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+       
     }
     
     override func viewWillAppear(animated: Bool) {

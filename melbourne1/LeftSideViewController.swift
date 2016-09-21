@@ -92,6 +92,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
                     try!FIRAuth.auth()?.signOut()
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.tableView.reloadData()
+                    
                     })
                     
                 }
