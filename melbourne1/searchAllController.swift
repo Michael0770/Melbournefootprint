@@ -13,13 +13,15 @@ import Firebase
 class searchAllController: UITableViewController,CLLocationManagerDelegate {
     let  flag = true
     var index = 1;
+    var userid:String?
     let searchController = UISearchController(searchResultsController:nil)
     //add search function
     var artworks = [Artworks]()
     var filteredArtwork = [Artworks]()
     var menuView: BTNavigationDropdownMenu!
     var category : String?
-    
+    var favoriteArtwork = [Artworks]()
+
     func filterContentForSearchText(searchText:String,scope:String = "All"){
         filteredArtwork = artworks.filter{
             artwork in
@@ -30,8 +32,24 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            self.userid = user.uid
+            self.favoriteArtwork.removeAll()
+            fetchFavoriteArtworks()
+            
+        } else {
+            // No user is signed in.
+            
+        }
+        
+        fetchArtworks()
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        
+        
         self.category = "All"
         self.fetchArtworks()
         let items = ["All", "Artwork", "HeritageBuilding", "Gallery/Museum"]
@@ -69,6 +87,21 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
 
     }
     
+    func fetchFavoriteArtworks(){
+        let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
+        ref.child("users/\(self.userid!)/favorite").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject]
+            {
+                let artwork = Artworks()
+                artwork.setValuesForKeysWithDictionary(dictionary)
+                self.favoriteArtwork.append(artwork)
+                
+            }
+            }, withCancelBlock: nil)
+        
+        
+        
+    }
     //get data from database
     func fetchArtworks(){
         
@@ -250,6 +283,21 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
             print(photo)
             
         }
+        if self.userid != nil
+        {
+            for currentArk in self.favoriteArtwork
+            {
+                if artwork.Name == currentArk.Name
+                {
+                    let image = UIImage(named: "heart_icon_selected")
+                    cell.faButton.setImage(image, forState: UIControlState.Normal)
+                    cell.isFavorate2 = true
+                }
+                
+            }
+            
+        }
+
         cell.noLoginButtonTapped = {
             let alertController = UIAlertController(title: "Reminder", message:
             "Please sign in to add favorite", preferredStyle: UIAlertControllerStyle.Alert)

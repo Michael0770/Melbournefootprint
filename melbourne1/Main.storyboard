@@ -352,7 +352,7 @@
             </objects>
             <point key="canvasLocation" x="-368" y="-299"/>
         </scene>
-        <!--Favourates-->
+        <!--Favorites-->
         <scene sceneID="RpU-xd-ZJy">
             <objects>
                 <viewController id="YJK-x1-u97" customClass="favourateViewController" customModule="melbourne1" sceneMemberID="viewController">
@@ -447,7 +447,7 @@
                             <constraint firstItem="UAp-QF-SJM" firstAttribute="leading" secondItem="NEy-JA-3Uw" secondAttribute="leading" id="yB3-u7-duh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favourates" id="DgM-DE-AOC"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="DgM-DE-AOC"/>
                     <connections>
                         <outlet property="favourateTableView" destination="UAp-QF-SJM" id="05U-qs-L9g"/>
                         <outlet property="loginButton" destination="CUj-lJ-eFS" id="bTA-Vm-1Id"/>
@@ -967,6 +967,6 @@ Proudly Sponsored by Monash University                                          
         <image name="viewNavigation" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wJb-EB-e63"/>
+        <segue reference="LAx-ai-qwI"/>
     </inferredMetricsTieBreakers>
 </document>
