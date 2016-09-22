@@ -87,6 +87,7 @@
 		5178336B52BFA64085ABA6C1 /* Pods_melbourne1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_melbourne1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5902C691376BA33A18D8E9 /* Pods_melbourne1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_melbourne1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD4FBBDFFF43FB99D70CC1E /* Pods-melbourne1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-melbourne1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-melbourne1/Pods-melbourne1.debug.xcconfig"; sourceTree = "<group>"; };
+		A602ADC61D93861400A7BA39 /* melbourne1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = melbourne1.entitlements; sourceTree = "<group>"; };
 		A613B1CE1D65565B00619D2F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A613B1D01D655A0300619D2F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A61796E11D891B6300AF0330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -194,6 +195,7 @@
 		A640AC391D6494DC005A4F84 /* melbourne1 */ = {
 			isa = PBXGroup;
 			children = (
+				A602ADC61D93861400A7BA39 /* melbourne1.entitlements */,
 				A68E39561D8F842400F198CE /* MMDrawer */,
 				A6BFB5B01D66EB6C00E75E27 /* helpers */,
 				A640AC3A1D6494DC005A4F84 /* AppDelegate.swift */,
@@ -367,6 +369,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
 							};
 						};
 					};
@@ -724,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = melbourne1/melbourne1.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BRJW2E4722;
@@ -762,6 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = melbourne1/melbourne1.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BRJW2E4722;

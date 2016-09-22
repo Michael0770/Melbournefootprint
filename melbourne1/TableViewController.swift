@@ -43,6 +43,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         }
         
         self.flag = false
+        self.artworks.removeAll()
         fetchArtworks()
         //        searchController.searchResultsUpdater = self
         //        searchController.dimsBackgroundDuringPresentation = false
