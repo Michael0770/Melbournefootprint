@@ -168,6 +168,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! TableViewCell
         let image = UIImage(named: "Heart_icon.png")
+        cell.isFavorate = false
         cell.faButton.setImage(image, forState: UIControlState.Normal)
         let locationManager1 = CLLocationManager()
         locationManager1.delegate = self
