@@ -31,7 +31,6 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
         case 1: return 1
         case 2: return 1
         case 3: return 1
-        case 4: return 1
         default: return 0
         }
 
@@ -39,7 +38,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 4
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
@@ -51,14 +50,12 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
         return 50.0//Choose your custom row height
         }
         if indexPath.section == 2{
-            return 50.0//Choose your custom row height
+            return 100.0//Choose your custom row height
         }
         if indexPath.section == 3{
             return 40.0//Choose your custom row height
         }
-        if indexPath.section == 4{
-            return 40.0//Choose your custom row height
-        }
+
         return 100
     }
     
@@ -99,7 +96,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
             }
             else
             {
-                cell.userPhoto.hidden = true
+                cell.userPhoto.image = UIImage(named: "footprint")
                 cell.userNameL.hidden = true
                 cell.signoutButton.hidden = true
                 cell.singninButton.hidden = false
@@ -118,10 +115,6 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RadiusCell
             return cell
 
-        }else if indexPath.section == 3{
-            let cell = tableView.dequeueReusableCellWithIdentifier("LanCell", forIndexPath: indexPath)
-            cell.textLabel?.text = "Language"
-            return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("AboutCell", forIndexPath: indexPath)
             cell.textLabel?.text = "About"

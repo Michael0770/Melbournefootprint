@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             openURL: url,
             sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String,
             annotation: options [UIApplicationOpenURLOptionsAnnotationKey])
-        if url.absoluteString.containsString("FACEBOOK_ID"){
+        if url.absoluteString!.containsString("FACEBOOK_ID"){
             return facebookDidHandle
             
         }
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             openURL: url,
             sourceApplication: sourceApplication,
             annotation: annotation)
-        if url.absoluteString.containsString("FACEBOOK_ID"){
+        if url.absoluteString!.containsString("FACEBOOK_ID"){
         return facebookDidHandle
         
         }

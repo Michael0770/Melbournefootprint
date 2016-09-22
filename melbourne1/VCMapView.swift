@@ -72,7 +72,7 @@ extension MapViewController: MKMapViewDelegate {
     
     func addRadiusOverlayForGeotification(geotification: ArtworkForMap) {
         
-        mapView?.addOverlay(MKCircle(centerCoordinate: geotification.coordinate, radius: 50))
+        mapView?.addOverlay(MKCircle(centerCoordinate: geotification.coordinate, radius: 10))
     }
     
 

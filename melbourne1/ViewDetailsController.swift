@@ -159,7 +159,7 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
     // add swip gesture
     func addSwipGesture(){
         
-        let leftSwip = UISwipeGestureRecognizer(target: self, action: #selector(ViewDetailsController.swipAction(_:)));
+       let leftSwip = UISwipeGestureRecognizer(target: self, action: #selector(ViewDetailsController.swipAction(_:)));
         leftSwip.direction = UISwipeGestureRecognizerDirection.Left;
         imageView.addGestureRecognizer(leftSwip);
         
@@ -171,9 +171,11 @@ class ViewDetailsController: UIViewController,UIScrollViewDelegate {
     //method for swip gesture
     func swipAction(swip:UISwipeGestureRecognizer){
         
-        if swip.direction == UISwipeGestureRecognizerDirection.Left{
-            leftAnimationAction();
-        }else if swip.direction == UISwipeGestureRecognizerDirection.Right{
+       if swip.direction == UISwipeGestureRecognizerDirection.Left{
+          leftAnimationAction();
+        }else
+        if swip.direction == UISwipeGestureRecognizerDirection.Right
+        {
             rightAnimationAction();
         }
     }
