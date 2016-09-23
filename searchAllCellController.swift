@@ -50,8 +50,7 @@ class searchAllCellController: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let image = UIImage(named:"Heart_icon")
-        self.faButton.setImage(image, forState: UIControlState.Normal)
+  
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

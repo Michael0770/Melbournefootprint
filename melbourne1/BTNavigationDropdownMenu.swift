@@ -487,23 +487,23 @@ class BTConfiguration {
         let arrowImagePath = imageBundle?.pathForResource("arrow_down_icon", ofType: "png")
         
         // Default values
-        self.menuTitleColor = UIColor.darkGrayColor()
+        self.menuTitleColor = UIColor.blackColor()
         self.cellHeight = 50
         self.cellBackgroundColor = UIColor.whiteColor()
-        self.arrowTintColor = UIColor.whiteColor()
-        self.cellSeparatorColor = UIColor.darkGrayColor()
-        self.cellTextLabelColor = UIColor.darkGrayColor()
-        self.selectedCellTextLabelColor = UIColor.darkGrayColor()
+        self.arrowTintColor = UIColor.blackColor()
+        self.cellSeparatorColor = UIColor.blackColor()
+        self.cellTextLabelColor = UIColor.blackColor()
+        self.selectedCellTextLabelColor = UIColor.blackColor()
         self.cellTextLabelFont = UIFont(name: "HelveticaNeue-Bold", size: 17)
         self.navigationBarTitleFont = UIFont(name: "HelveticaNeue-Bold", size: 17)
         self.cellTextLabelAlignment = NSTextAlignment.Left
-        self.cellSelectionColor = UIColor.lightGrayColor()
+        self.cellSelectionColor = UIColor.whiteColor()
         self.checkMarkImage = UIImage(contentsOfFile: checkMarkImagePath!)
         self.shouldKeepSelectedCellColor = false
         self.animationDuration = 0.5
         self.arrowImage = UIImage(contentsOfFile: arrowImagePath!)
         self.arrowPadding = 15
-        self.maskBackgroundColor = UIColor.blackColor()
+        self.maskBackgroundColor = UIColor.whiteColor()
         self.maskBackgroundOpacity = 0.3
         self.shouldChangeTitleText = true
     }
@@ -655,7 +655,7 @@ class BTTableViewCell: UITableViewCell {
 
 // Content view of table view cell
 class BTTableCellContentView: UIView {
-    var separatorColor: UIColor = UIColor.blackColor()
+    var separatorColor: UIColor = UIColor.whiteColor()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

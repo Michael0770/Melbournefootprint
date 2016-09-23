@@ -44,31 +44,26 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
             
         }
         
-        fetchArtworks()
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        
-        
         self.category = "All"
+        self.artworks.removeAll()
         self.fetchArtworks()
         let items = ["All", "Artwork", "HeritageBuilding", "Gallery/Museum"]
         //self.selectedCellLabel.text = items.first
         self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor.darkGrayColor()//UIColor(red: 2.0, green:0.0, blue:0.0, alpha: 1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()//UIColor(red: 2.0, green:0.0, blue:0.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
         
         menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "All", items: items)
         menuView.cellHeight = 50
         menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
-        menuView.cellSelectionColor = UIColor.darkGrayColor()//UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
+        menuView.cellSelectionColor = UIColor.whiteColor()//UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
         menuView.shouldKeepSelectedCellColor = true
-        menuView.cellTextLabelColor = UIColor.whiteColor()
+        menuView.cellTextLabelColor = UIColor.blackColor()
         menuView.cellTextLabelFont = UIFont(name: "Avenir-Heavy", size: 17)
         menuView.cellTextLabelAlignment = .Left
         menuView.arrowPadding = 15
         menuView.animationDuration = 0.5
-        menuView.maskBackgroundColor = UIColor.blackColor()
+        menuView.maskBackgroundColor = UIColor.whiteColor()
         menuView.maskBackgroundOpacity = 0.3
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
         print("Did select item at index: \(indexPath)")
@@ -235,7 +230,9 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
     //define cell in tablebar to show artwokr
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("searchAllCell", forIndexPath: indexPath) as! searchAllCellController
-        
+        let image = UIImage(named: "Heart_icon.png")
+        cell.isFavorate2 = false
+        cell.faButton.setImage(image, forState: UIControlState.Normal)
         let locationManager1 = CLLocationManager()
         locationManager1.delegate = self
         locationManager1.desiredAccuracy = kCLLocationAccuracyBest
@@ -292,6 +289,7 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
                     let image = UIImage(named: "heart_icon_selected")
                     cell.faButton.setImage(image, forState: UIControlState.Normal)
                     cell.isFavorate2 = true
+                
                 }
                 
             }
