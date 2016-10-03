@@ -1,24 +1,30 @@
 //
-//  UserViewCell.swift
+//  loginCell.swift
 //  melbourne1
 //
-//  Created by zihaowang on 19/09/2016.
+//  Created by zihaowang on 3/10/2016.
 //  Copyright © 2016 zihaowang. All rights reserved.
 //
 
 import UIKit
 
-class UserViewCell: UITableViewCell {
+class loginCell: UITableViewCell {
     var signOutAction : (() -> Void)? = nil
-    @IBOutlet weak var welcomeL: UILabel!
-   
-    @IBOutlet weak var userNameL: UILabel!
-    @IBOutlet weak var userPhoto: UIImageView!
+
+    @IBOutlet weak var loginButton: UIButton!
+    @IBAction func loginButtonAction(sender: AnyObject) {
+    }
+    @IBOutlet weak var signoutbutton: UIButton!
+    @IBAction func signoutAction(sender: AnyObject) {
+        if let signOutAction = self.signOutAction {
+            signOutAction()
+        }
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

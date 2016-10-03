@@ -289,7 +289,7 @@
                                     <action selector="mapTypeChanged:" destination="lDT-c0-csS" eventType="valueChanged" id="og4-vG-iv3"/>
                                 </connections>
                             </segmentedControl>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BDb-s1-aSJ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BDb-s1-aSJ">
                                 <frame key="frameInset" width="600" height="551"/>
                             </mapView>
                         </subviews>
@@ -364,16 +364,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egi-4j-REP">
                                 <state key="normal" title="Please sign in to show favorites"/>
-                                <connections>
-                                    <action selector="favoriteLoginAction:" destination="YJK-x1-u97" eventType="touchUpInside" id="VbE-f9-e3W"/>
-                                    <action selector="logInViewButton:" destination="YJK-x1-u97" eventType="touchUpInside" id="JAW-44-ngL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUj-lJ-eFS">
-                                <state key="normal" title="Refresh"/>
-                                <connections>
-                                    <action selector="refreshAc:" destination="YJK-x1-u97" eventType="touchUpInside" id="Vg9-Zl-IVw"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UAp-QF-SJM">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -434,21 +424,17 @@
                             <constraint firstAttribute="trailing" secondItem="UAp-QF-SJM" secondAttribute="trailing" id="D8Q-gp-xrA"/>
                             <constraint firstItem="UAp-QF-SJM" firstAttribute="centerX" secondItem="egi-4j-REP" secondAttribute="centerX" id="FoJ-No-8DC"/>
                             <constraint firstItem="UAp-QF-SJM" firstAttribute="bottom" secondItem="Zb0-vf-M80" secondAttribute="top" id="gaR-Tb-koW"/>
-                            <constraint firstItem="CUj-lJ-eFS" firstAttribute="top" secondItem="egi-4j-REP" secondAttribute="bottom" constant="26" id="i80-JR-fj5"/>
-                            <constraint firstItem="egi-4j-REP" firstAttribute="centerX" secondItem="CUj-lJ-eFS" secondAttribute="centerX" id="mva-Rl-PAd"/>
                             <constraint firstItem="UAp-QF-SJM" firstAttribute="leading" secondItem="NEy-JA-3Uw" secondAttribute="leading" id="yB3-u7-duh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="DgM-DE-AOC"/>
                     <connections>
                         <outlet property="favourateTableView" destination="UAp-QF-SJM" id="05U-qs-L9g"/>
-                        <outlet property="loginButton" destination="CUj-lJ-eFS" id="bTA-Vm-1Id"/>
-                        <outlet property="refreshButton" destination="CUj-lJ-eFS" id="oMA-Tf-lCp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKI-Fr-UKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431" y="1116"/>
+            <point key="canvasLocation" x="1193" y="1127"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="jPb-4h-clZ">
@@ -463,12 +449,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05d-Tz-EDv" customClass="GIDSignInButton">
-                                <frame key="frameInset" minX="20" minY="350" width="206" height="52"/>
+                                <frame key="frameInset" minX="89" minY="350" width="206" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-cn-EOc" customClass="FBSDKLoginButton">
-                                <frame key="frameInset" minX="25" minY="410" width="197" height="47"/>
+                                <frame key="frameInset" minX="98" minY="410" width="197" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -482,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mar-MX-thz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="1169"/>
+            <point key="canvasLocation" x="1868" y="1775"/>
         </scene>
         <!--Heritage-->
         <scene sceneID="Hpd-bS-IM3">
@@ -490,7 +476,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RXa-1i-j07" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Heritage" image="list tab" id="KOm-uh-f80"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DOf-wj-ijZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DOf-wj-ijZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -509,7 +495,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CyJ-cd-uCa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map tab" id="nW9-RA-hPj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jai-ac-anC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jai-ac-anC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -631,7 +617,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mBd-hf-AVq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favourite" image="Favourite" id="kEi-BE-sfx"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ka-s6-bxv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5ka-s6-bxv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -650,7 +636,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KHk-2O-E02" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="H7c-rd-bXs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NBM-xb-hjL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NBM-xb-hjL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -705,38 +691,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppA-Rf-lAm">
-                                                    <state key="normal" title="Sign out"/>
-                                                    <connections>
-                                                        <action selector="singoutAction:" destination="pZm-Yi-Eee" eventType="touchUpInside" id="h94-K7-5Dw"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXE-HC-Gas">
-                                                    <state key="normal" title="Sign in"/>
-                                                    <connections>
-                                                        <segue destination="BBl-K0-dxy" kind="show" id="J1Z-Kb-paE"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lXE-HC-Gas" firstAttribute="centerY" secondItem="gyg-gR-iv5" secondAttribute="centerY" id="0Uk-bG-EPC"/>
                                                 <constraint firstItem="dKR-6r-Sn9" firstAttribute="trailing" secondItem="gyg-gR-iv5" secondAttribute="trailing" id="76F-ys-jks"/>
-                                                <constraint firstItem="lXE-HC-Gas" firstAttribute="top" secondItem="dKR-6r-Sn9" secondAttribute="bottom" constant="8" symbolic="YES" id="8N7-vt-Zn7"/>
-                                                <constraint firstItem="ppA-Rf-lAm" firstAttribute="top" secondItem="gyg-gR-iv5" secondAttribute="bottom" constant="3" id="8eO-pf-NBc"/>
                                                 <constraint firstItem="w5w-eq-zLZ" firstAttribute="top" secondItem="dKR-6r-Sn9" secondAttribute="top" id="F5c-df-Vvi"/>
                                                 <constraint firstItem="dKR-6r-Sn9" firstAttribute="leading" secondItem="w5w-eq-zLZ" secondAttribute="trailing" constant="8" symbolic="YES" id="Q3A-r9-zZd"/>
                                                 <constraint firstItem="dKR-6r-Sn9" firstAttribute="leading" secondItem="gyg-gR-iv5" secondAttribute="leading" id="RXO-qo-KE6"/>
                                                 <constraint firstItem="w5w-eq-zLZ" firstAttribute="leading" secondItem="sFY-gA-L2U" secondAttribute="leading" id="dZS-Ca-JYm"/>
-                                                <constraint firstItem="lXE-HC-Gas" firstAttribute="leading" secondItem="gyg-gR-iv5" secondAttribute="leading" id="ewN-e6-4G1"/>
-                                                <constraint firstItem="gyg-gR-iv5" firstAttribute="leading" secondItem="ppA-Rf-lAm" secondAttribute="leading" id="faj-Ju-8O1"/>
+                                                <constraint firstItem="gyg-gR-iv5" firstAttribute="top" secondItem="dKR-6r-Sn9" secondAttribute="bottom" constant="13" id="gkL-JG-6w9"/>
                                                 <constraint firstItem="w5w-eq-zLZ" firstAttribute="top" secondItem="sFY-gA-L2U" secondAttribute="topMargin" id="uH8-pZ-3CW"/>
                                                 <constraint firstItem="w5w-eq-zLZ" firstAttribute="centerY" secondItem="sFY-gA-L2U" secondAttribute="centerY" id="yKg-eP-i6g"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="signinAction" destination="lXE-HC-Gas" id="Kb0-AF-wYA"/>
-                                            <outlet property="signoutButton" destination="ppA-Rf-lAm" id="20N-dA-2ar"/>
-                                            <outlet property="singninButton" destination="lXE-HC-Gas" id="G7s-2n-i1w"/>
                                             <outlet property="userNameL" destination="gyg-gR-iv5" id="g5E-xQ-LjW"/>
                                             <outlet property="userPhoto" destination="w5w-eq-zLZ" id="HES-vu-GWY"/>
                                             <outlet property="welcomeL" destination="dKR-6r-Sn9" id="Ffq-Tf-6O7"/>
@@ -833,6 +800,37 @@
                                             <segue destination="pcb-cH-9WA" kind="show" identifier="aboutSegue" id="fgM-SD-4su"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loginCell" rowHeight="46" id="Fn5-2E-PIj" customClass="loginCell" customModule="melbourne1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="417" width="600" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fn5-2E-PIj" id="BFq-cP-JHM">
+                                            <frame key="frameInset" width="600" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPR-NG-Odg">
+                                                    <frame key="frameInset" width="377" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="loginButton"/>
+                                                    <connections>
+                                                        <action selector="loginButtonAction:" destination="Fn5-2E-PIj" eventType="touchUpInside" id="aCg-vP-gNv"/>
+                                                        <segue destination="BBl-K0-dxy" kind="show" id="hQO-XH-dvy"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-xz-4On">
+                                                    <frame key="frameInset" minY="8" width="377" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Sign Out"/>
+                                                    <connections>
+                                                        <action selector="signoutAction:" destination="Fn5-2E-PIj" eventType="touchUpInside" id="UBc-Kd-Vgc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="loginButton" destination="iPR-NG-Odg" id="nFI-i1-kPN"/>
+                                            <outlet property="signoutbutton" destination="cOQ-xz-4On" id="ucV-jZ-RHo"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="uxp-VR-jN2" id="q2c-93-4Lj"/>
@@ -849,7 +847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLN-ol-Sik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="1949"/>
+            <point key="canvasLocation" x="761" y="1952"/>
         </scene>
         <!--About-->
         <scene sceneID="cq5-Bz-Vhz">
@@ -924,7 +922,7 @@ Proudly Sponsored by Monash University                                          
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SwD-lG-0H7" userLabel="Setting" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Setting" id="PUJ-Bp-FVE" userLabel="Setting"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8hh-ob-5QG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8hh-ob-5QG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

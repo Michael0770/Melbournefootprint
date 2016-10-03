@@ -14,22 +14,7 @@ import FBSDKLoginKit
 class favourateViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, CLLocationManagerDelegate {
     var artworks = [Artworks]()
     var userid:String?
-    @IBOutlet weak var refreshButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var favourateTableView: UITableView!
-    @IBAction func logInViewButton(sender: AnyObject) {
-        
-    }
-    @IBAction func refreshAc(sender: AnyObject) {
-        self.viewWillAppear(true)
-    }
-    
-    @IBAction func favoriteLoginAction(sender: AnyObject) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.drawerContainer?.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-self.view.setNeedsDisplay()
-    }
-    
     
     override func viewWillAppear(animated: Bool) {
         self.favourateTableView.delegate = self
@@ -38,8 +23,6 @@ self.view.setNeedsDisplay()
             // User is signed in.
             self.userid = user.uid
             self.favourateTableView.hidden = false
-            self.loginButton.hidden = true
-            self.refreshButton.hidden = true
 
             artworks.removeAll()
             self.favourateTableView.reloadData()
@@ -47,7 +30,6 @@ self.view.setNeedsDisplay()
         } else {
             // No user is signed in.
             self.favourateTableView.hidden = true
-            self.loginButton.hidden = false
         }
         
     }

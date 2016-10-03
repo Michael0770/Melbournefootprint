@@ -31,6 +31,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
         case 1: return 1
         case 2: return 1
         case 3: return 1
+        case 4: return 1
         default: return 0
         }
 
@@ -38,7 +39,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4
+        return 5
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
@@ -55,6 +56,10 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 3{
             return 40.0//Choose your custom row height
         }
+        if indexPath.section == 4{
+            return 40.0//Choose your custom row height
+        }
+
 
         return 100
     }
@@ -79,8 +84,6 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.userNameL.text = name
                 cell.userPhoto.hidden = false
                 cell.userNameL.hidden = false
-                cell.singninButton.hidden = true
-                cell.signoutButton.hidden = false
                 cell.welcomeL.text = "welcome, "
                 cell.signOutAction = {
                     let loginManager = FBSDKLoginManager()
@@ -98,8 +101,6 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 cell.userPhoto.image = UIImage(named: "footprint")
                 cell.userNameL.hidden = true
-                cell.signoutButton.hidden = true
-                cell.singninButton.hidden = false
                 cell.welcomeL.text = "please sign in"
                 
                 
@@ -115,14 +116,42 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RadiusCell
             return cell
 
-        }else{
+        }else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier("AboutCell", forIndexPath: indexPath)
             cell.textLabel?.text = "About"
             return cell
         }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("loginCell", forIndexPath: indexPath) as! loginCell
+             if let user = FIRAuth.auth()?.currentUser {
+                cell.loginButton.hidden = true
+                cell.signoutbutton.hidden = false
+                cell.signOutAction = {
+                    let loginManager = FBSDKLoginManager()
+                    loginManager.logOut()
+                    GIDSignIn.sharedInstance().signOut()
+                    try!FIRAuth.auth()?.signOut()
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.tableView.reloadData()
+                        
+                    })
+                    
+                }
+
+            }
+             else
+             {
+                cell.signoutbutton.hidden = true
+                cell.loginButton.hidden = false
+                
+                
+            }
+            return cell
+        
+        
+        }
         
     }
-    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "aboutSegue" {
 //            let inventoryViewController = segue.destinationViewController as! AboutViewController
