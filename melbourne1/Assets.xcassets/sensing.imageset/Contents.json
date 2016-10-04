@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-10-04 at 12.20.12 PM.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "sensing.png",
       "scale" : "2x"
     },
     {
