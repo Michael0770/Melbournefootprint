@@ -14,22 +14,25 @@ import CoreLocation
 class TableViewController: UITableViewController, CLLocationManagerDelegate {
     var flag : Bool?
     var index = 1;
-    let searchController = UISearchController(searchResultsController:nil)
     //add search function
     var artworks = [Artworks]()
     var favoriteArtwork = [Artworks]()
     var userid :String?
-    var filteredArtwork = [Artworks]()
-    func filterContentForSearchText(searchText:String,scope:String = "All"){
-        filteredArtwork = artworks.filter{
-            artwork in
-            return artwork.Name!.lowercaseString.containsString(searchText.lowercaseString) || artwork.Date!.containsString(searchText) ||
-                artwork.Artist!.lowercaseString.containsString(searchText.lowercaseString)
-        }
-        tableView.reloadData()
-        
-    }
     override func viewWillAppear(animated: Bool) {
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            self.userid = user.uid
+            self.favoriteArtwork.removeAll()
+            fetchFavoriteArtworks()
+            self.tableView.reloadData()
+        } else {
+            // No user is signed in.
+            
+        }
+
+    }
+    override func viewDidLoad() {
+     super.viewDidLoad()
         
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
@@ -198,10 +201,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if searchController.active && searchController.searchBar.text != "" {
-            return filteredArtwork.count
-        }
-        
+     
         return artworks.count
     }
     
@@ -226,12 +226,9 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         cell.nameL.numberOfLines = 0;
         
         let artwork : Artworks
-        if searchController.active && searchController.searchBar.text != "" {
-            artwork = filteredArtwork[indexPath.row]
-        }else {
-            artwork = artworks[indexPath.row]
-        }
-        
+      
+        artwork = artworks[indexPath.row]
+
         cell.nameL.text = artwork.Name
         
         let fullNameArr = artwork.Coordinates!.componentsSeparatedByString(",")
@@ -325,11 +322,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             let controller: ViewDetailsController = segue.destinationViewController
                 as! ViewDetailsController
             let artworkDetail: Artworks
-            if searchController.active && searchController.searchBar.text != "" {
-                artworkDetail = filteredArtwork[indexPath.row]
-            }else {
-                artworkDetail = artworks[indexPath.row]
-            }
+            artworkDetail = artworks[indexPath.row]
 
             controller.currentArtwork = artworkDetail            //self.tabBarController?.tabBar.hidden = true
             controller.hidesBottomBarWhenPushed = true
@@ -338,14 +331,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // Pass the selected object to the new view controller.
     }
     
-}
-//update  content when seaching.
-extension TableViewController : UISearchResultsUpdating {
-    
-    func updateSearchResultsForSearchController(searchController:UISearchController)
-    {
-        filterContentForSearchText(searchController.searchBar.text!)
-}
     
     
 }
