@@ -118,7 +118,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
 
         }else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier("AboutCell", forIndexPath: indexPath)
-            cell.textLabel?.text = "About"
+            //cell.textLabel?.text = "About"
             return cell
         }
         else {
