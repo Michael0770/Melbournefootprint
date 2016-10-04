@@ -31,8 +31,20 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
         tableView.reloadData()
         
     }
-    
     override func viewWillAppear(animated: Bool) {
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            self.userid = user.uid
+            self.favoriteArtwork.removeAll()
+            fetchFavoriteArtworks()
+            self.tableView.reloadData()
+        } else {
+            // No user is signed in.
+            
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
             self.userid = user.uid
@@ -73,10 +85,10 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
         self.fetchArtworks()
         }
         self.navigationItem.titleView = menuView
-       
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
+        searchController.searchBar.sizeToFit()
         self.searchController.hidesNavigationBarDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
 
