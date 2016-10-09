@@ -654,11 +654,11 @@
             </objects>
             <point key="canvasLocation" x="1658" y="-516"/>
         </scene>
-        <!--Favourite-->
+        <!--Favorites-->
         <scene sceneID="vYK-aa-QB1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mBd-hf-AVq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favourite" image="Favourite" id="kEi-BE-sfx"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Favourite" id="kEi-BE-sfx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5ka-s6-bxv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1027,6 +1027,6 @@ Proudly Sponsored by Monash University                                          
         <image name="viewNavigation" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wJb-EB-e63"/>
+        <segue reference="LAx-ai-qwI"/>
     </inferredMetricsTieBreakers>
 </document>
