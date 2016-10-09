@@ -35,16 +35,14 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     
     
     @IBAction func backToCurrentLocation(sender: AnyObject) {
-        
-            
-            
+ 
             self.locationManager1.delegate = self
             self.locationManager1.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager1.requestWhenInUseAuthorization()
             self.locationManager1.startUpdatingLocation()
             self.mapView.showsUserLocation = true
             
-                        mapView.showsUserLocation = true
+            mapView.showsUserLocation = true
             
             
     }
@@ -213,8 +211,9 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
         
     }
     
+    
     func fetchArtworks(){
-
+        
         let ref = FIRDatabase.database().referenceFromURL("https://melbourne-footprint.firebaseio.com/")
         ref.childByAppendingPath("Heritage").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]
@@ -275,5 +274,4 @@ class MapViewController: UIViewController ,CLLocationManagerDelegate{
     }
     
 
-    
 }

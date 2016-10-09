@@ -59,7 +59,7 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
         self.category = "All"
         self.artworks.removeAll()
         self.fetchArtworks()
-        let items = ["All", "Artwork", "HeritageBuilding", "Gallery/Museum"]
+        let items = ["All", "Artwork", "Heritage Building", "Gallery/Museum"]
         //self.selectedCellLabel.text = items.first
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()//UIColor(red: 2.0, green:0.0, blue:0.0, alpha: 1.0)
