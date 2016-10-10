@@ -25,6 +25,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             self.favoriteArtwork.removeAll()
             fetchFavoriteArtworks()
         } else {
+            self.favoriteArtwork.removeAll()
+        self.tableView.reloadData()
             // No user is signed in.
             
         }

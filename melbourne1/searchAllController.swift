@@ -52,6 +52,9 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
             self.tableView.reloadData()
 
         } else {
+            self.favoriteArtwork.removeAll()
+            self.tableView.reloadData()
+
             // No user is signed in.
             
         }
