@@ -24,16 +24,22 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             self.userid = user.uid
             self.favoriteArtwork.removeAll()
             fetchFavoriteArtworks()
+            self.flag = false
+            self.artworks.removeAll()
+            fetchArtworks()
+
         } else {
             self.favoriteArtwork.removeAll()
-        self.tableView.reloadData()
+            self.flag = false
+            self.artworks.removeAll()
+            fetchArtworks()
             // No user is signed in.
             
         }
        
 
     }
-    override func viewDidLoad() {
+   override func viewDidLoad() {
      super.viewDidLoad()
         
         if let user = FIRAuth.auth()?.currentUser {
@@ -44,17 +50,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
             self.tableView.reloadData()
         } else {
             // No user is signed in.
-            
+          
         }
         
         self.flag = false
         self.artworks.removeAll()
         fetchArtworks()
-        //        searchController.searchResultsUpdater = self
-        //        searchController.dimsBackgroundDuringPresentation = false
-        //        definesPresentationContext = true
-        //        tableView.tableHeaderView = searchController.searchBar
-        
         
     }
 

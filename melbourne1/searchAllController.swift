@@ -37,7 +37,12 @@ class searchAllController: UITableViewController,CLLocationManagerDelegate {
             self.userid = user.uid
             self.favoriteArtwork.removeAll()
             fetchFavoriteArtworks()
+            self.artworks.removeAll()
+            self.fetchArtworks()
         } else {
+            self.favoriteArtwork.removeAll()
+            self.artworks.removeAll()
+            self.fetchArtworks()
             // No user is signed in.
             
         }
