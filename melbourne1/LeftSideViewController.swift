@@ -101,7 +101,7 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 cell.userPhoto.image = UIImage(named: "footprint")
                 cell.userNameL.hidden = true
-                cell.welcomeL.text = "please sign in"
+                cell.welcomeL.text = ""
                 
                 
             }

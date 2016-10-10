@@ -23,7 +23,6 @@ class favourateViewController: UIViewController,UITableViewDataSource,UITableVie
             // User is signed in.
             self.userid = user.uid
             self.favourateTableView.hidden = false
-
             artworks.removeAll()
             self.favourateTableView.reloadData()
             fetchArtworks()
