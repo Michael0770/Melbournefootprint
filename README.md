@@ -13,8 +13,11 @@ The report is intended for all of the project’s major stakeholders: the academ
 
 
 ### Use Case Diagram
-
+ ![ See image below :](https://github.com/Michael0770/Melbournefootprint/blob/Michael/Use%20Case%20Diagram.png)
+ 
 ### ER Diagram
+
+ ![ See image below :](https://github.com/Michael0770/Melbournefootprint/blob/Michael/ER%20Diagram.png)
 
 This data model contains entities including User and Heritage. User entity comprises
 information about registered users who login using their google or Facebook account. Registered users are different than guest users. They can collect their favourite heritage. The Heritage entity contains information about Artworks and Heritages fetched from different open datasets. It includes Name, Address point, Artist name, Art year, Description, Photo, Structure, Artwork Co-ordinates and Artwork Alternate name of the Artworks or Heritages.
